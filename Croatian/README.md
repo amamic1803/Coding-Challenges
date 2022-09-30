@@ -1,2 +1,2 @@
 # HR-Zadaci
-Razni zadaci s rješenjima
+Razni zadaci s rješenjima.
