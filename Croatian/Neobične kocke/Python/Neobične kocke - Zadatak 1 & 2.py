@@ -6,7 +6,7 @@ kocka_kom = list(itertools.combinations_with_replacement(range(0, 13), 6))  # ra
 kocka_len = len(kocka_kom)  # dobiva duljinu list iznad
 
 def checker(arg):
-	# komentar 1
+	# komentar 1. - Multiples of 3 or 5
 	if arg == 1:
 		rang_l = 0
 		rang_h = int(1*(kocka_len/4))
@@ -19,13 +19,13 @@ def checker(arg):
 	else:
 		rang_l = int(3*(kocka_len/4))
 		rang_h = int(4*(kocka_len/4))
-	# sve između komentara 1 i ovog komentara računa koji dio pojedini proces treba računati s obzirom na broj procesa koji je dobiven kao argument funkcije
+	# sve između komentara 1. - Multiples of 3 or 5 i ovog komentara računa koji dio pojedini proces treba računati s obzirom na broj procesa koji je dobiven kao argument funkcije
 
 	for loop1 in range(rang_l, rang_h):  # rang_l označuje dio liste s kombinacijama kocaka od kojeg treba krenuti određeni proces, a rang_h dio liste s kojim određeni proces završava
 		kocka1 = kocka_kom[loop1]  # definira varijablu kocka1 za svaki loop1 (dio liste s kombinacijama kocaka)
-		for loop2 in range(0, kocka_len):  # definira varijablu kocka2 za svaki loop2 u cijeloj listi s kombinacijama kocaka (nema razloga da se i kombinacije za kocku 2 dijele međuu procesima
+		for loop2 in range(0, kocka_len):  # definira varijablu kocka2 za svaki loop2 u cijeloj listi s kombinacijama kocaka (nema razloga da se i kombinacije za kocku 2. - Even Fibonacci numbers dijele međuu procesima
 			kocka2 = kocka_kom[loop2]
-			if (max(kocka1) + max(kocka2)) > 12 or (min(kocka1) + min(kocka2)) < 2:  # provjerava da ne postoji mogućnost da se dobi broj veći od 12, ili broj manji od 2, ako postoji automatski odbacuje kombinaciju; puno ubrzava rad programa
+			if (max(kocka1) + max(kocka2)) > 12 or (min(kocka1) + min(kocka2)) < 2:  # provjerava da ne postoji mogućnost da se dobi broj veći od 12, ili broj manji od 2. - Even Fibonacci numbers, ako postoji automatski odbacuje kombinaciju; puno ubrzava rad programa
 				continue
 			# varijable test(broj) traže broj kombinacija od kojih se može složiti neki broj od dvije kocke; prvo se čiste(dodjeljuje im se vrijednost 0 prije provjeravanja)
 			test2 = 0
@@ -39,7 +39,7 @@ def checker(arg):
 			test10 = 0
 			test11 = 0
 			test12 = 0
-			# ove dvije for formule ispod i if u njima dodjeljuju vrijednost varijablama test(broj) ovisno o broju kombinacija na koji se može složiti određeni broj od 2 do 12 od određene dvije kocke
+			# ove dvije for formule ispod i if u njima dodjeljuju vrijednost varijablama test(broj) ovisno o broju kombinacija na koji se može složiti određeni broj od 2. - Even Fibonacci numbers do 12 od određene dvije kocke
 			for x in kocka1:
 				for y in kocka2:
 					zbroj = x + y
@@ -96,4 +96,4 @@ if __name__ == "__main__":
 	for process in processes:
 		process.join()
 
-# program ispisuje 9 rješenja, jedno već znamo (2 kocke od 1 do 6), a ostalih osam su u parovima (zamijenjene prva i druga kocka) -> dakle postoji 4 rješenja
+# program ispisuje 9 rješenja, jedno već znamo (2. - Even Fibonacci numbers kocke od 1. - Multiples of 3 or 5 do 6), a ostalih osam su u parovima (zamijenjene prva i druga kocka) -> dakle postoji 4 rješenja

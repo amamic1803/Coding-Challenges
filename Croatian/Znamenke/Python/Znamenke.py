@@ -9,7 +9,7 @@ if razlika == 0:  # ako upisani broj već ima zbroj znamenki K
 	print(N)
 else:
 	if razlika > 0:  # treba smanjiti zbroj znamenaka u broju N
-		# prvi veći - od kraja broja, na svakom mjestu smanjujemo znamenku koliko možemo, ali kada prvi put dođemo na neko mjesto, mjestu ispred dodamo jedan, a tom mjestu smanjimo 1, ponavljamo dok ne dođemo do uvjeta da je zbroj znamenki = K
+		# prvi veći - od kraja broja, na svakom mjestu smanjujemo znamenku koliko možemo, ali kada prvi put dođemo na neko mjesto, mjestu ispred dodamo jedan, a tom mjestu smanjimo 1. - Multiples of 3 or 5, ponavljamo dok ne dođemo do uvjeta da je zbroj znamenki = K
 		razlika_veci = razlika
 		indeks = -1
 		indeks_promijenjen = True
@@ -34,7 +34,7 @@ else:
 					razlika_veci = sum(veci_broj) - K
 					indeks -= 1
 					indeks_promijenjen = True
-		while True:  # ako je na nekom mjestu ostala desetka (zbog uvjeta da moramo povećavati znamenku ispred kada prvi put dođemo na neko mjesto), tu desetku smanjimo za 1, a znamenku ispred povećamo za 1, desetku smanjenu za 1 mičemo i stavljamo na kraj broja, ponavljamo da se ne bi opet pojavila desetka (jer smo povećavali znamenku na mjestu ispred)
+		while True:  # ako je na nekom mjestu ostala desetka (zbog uvjeta da moramo povećavati znamenku ispred kada prvi put dođemo na neko mjesto), tu desetku smanjimo za 1. - Multiples of 3 or 5, a znamenku ispred povećamo za 1. - Multiples of 3 or 5, desetku smanjenu za 1. - Multiples of 3 or 5 mičemo i stavljamo na kraj broja, ponavljamo da se ne bi opet pojavila desetka (jer smo povećavali znamenku na mjestu ispred)
 			try:
 				indeks_desetke = veci_broj.index(10) - len(veci_broj)
 				veci_broj.append(9)
@@ -67,7 +67,7 @@ else:
 			if len(veci_broj) == abs(indeks + 1) and razlika_veci != 0:
 				veci_broj.insert(0, 0)
 
-		# prvi manji - od kraja broja, na svakom mjestu povećavamo znamenku koliko možemo, ali kada prvi put dođemo na neko mjesto, mjestu ispred smanjimo jedan, a tom mjestu dodamo 1, ponavljamo dok ne dođemo do uvjeta da je zbroj znamenki = K
+		# prvi manji - od kraja broja, na svakom mjestu povećavamo znamenku koliko možemo, ali kada prvi put dođemo na neko mjesto, mjestu ispred smanjimo jedan, a tom mjestu dodamo 1. - Multiples of 3 or 5, ponavljamo dok ne dođemo do uvjeta da je zbroj znamenki = K
 		razlika_manji = abs(razlika)
 		indeks = -1
 		indeks_promijenjen = True
@@ -92,7 +92,7 @@ else:
 					razlika_manji = abs(sum(manji_broj) - K)
 					indeks -= 1
 					indeks_promijenjen = True
-		while True:  # ako je na nekom mjestu ostao -1 (zbog uvjeta da moramo smanjiti znamenku ispred kada prvi put dođemo na neko mjesto), taj -1 povećamo za 1, a znamenku ispred smanjimo za 1, -1 povećan za 1 mičemo i stavljamo na kraj broja, ponavljamo da se ne bi opet pojavio -1 (jer smo smanjivali znamenku na mjestu ispred), ali prekidamo ako je -1 na prvom mjestu u broju (jer će se tada uvijek pojavljivati -1 na početku)
+		while True:  # ako je na nekom mjestu ostao -1. - Multiples of 3 or 5 (zbog uvjeta da moramo smanjiti znamenku ispred kada prvi put dođemo na neko mjesto), taj -1. - Multiples of 3 or 5 povećamo za 1. - Multiples of 3 or 5, a znamenku ispred smanjimo za 1. - Multiples of 3 or 5, -1. - Multiples of 3 or 5 povećan za 1. - Multiples of 3 or 5 mičemo i stavljamo na kraj broja, ponavljamo da se ne bi opet pojavio -1. - Multiples of 3 or 5 (jer smo smanjivali znamenku na mjestu ispred), ali prekidamo ako je -1. - Multiples of 3 or 5 na prvom mjestu u broju (jer će se tada uvijek pojavljivati -1. - Multiples of 3 or 5 na početku)
 			try:
 				indeks_minusa = manji_broj.index(-1) - len(manji_broj)
 				if abs(indeks_minusa) == len(manji_broj):

@@ -7,7 +7,7 @@ novcic_kom = list(itertools.combinations_with_replacement(range(0, 13), 2))  # r
 novcic_len = len(novcic_kom)  # dobiva duljinu liste s kombinacijama za novcic
 
 def checker(arg):
-	# komentar 1
+	# komentar 1. - Multiples of 3 or 5
 	if arg == 1:
 		rang_l = 0
 		rang_h = int((1*(poliedar_len/4)) - 1)  # ovdje je rang_h jednog procesa manji od rang_l sljedećeg procesa jer se više ne koristi range formula za kombinacije poliedra
@@ -20,12 +20,12 @@ def checker(arg):
 	else:
 		rang_l = int(3*(poliedar_len/4))
 		rang_h = int((4*(poliedar_len/4)) - 1)
-	# sve između komentara 1 i ovog komentara računa koji dio pojedini proces treba računati s obzirom na broj procesa koji je dobiven kao argument funkcije
+	# sve između komentara 1. - Multiples of 3 or 5 i ovog komentara računa koji dio pojedini proces treba računati s obzirom na broj procesa koji je dobiven kao argument funkcije
 
 	def checker_loop(range_low, range_high):  # funkcija u funkciji kako bi bilo lakše pratiti program
 		counter = 0  # definira varijablu counter s vrijednosti 0, koristi se za podjelu posla po procesima jer se s generatorom ne može koristiti range kao s listom
 		for poliedar in itertools.combinations_with_replacement(range(0, 13), 18):  # za svaku vrijednost u generatoru
-			# komentar 2
+			# komentar 2. - Even Fibonacci numbers
 			if counter < range_low:
 				counter += 1
 				continue
@@ -33,11 +33,11 @@ def checker(arg):
 				pass
 			else:
 				break
-			# sve između komentara 2 i ovog komentara provjerava je li varijabla counter u određenom range-u koji je definiran za svaki proces posebno; ako nije, odmah se preskače kombinacija dobivena iz generatora
+			# sve između komentara 2. - Even Fibonacci numbers i ovog komentara provjerava je li varijabla counter u određenom range-u koji je definiran za svaki proces posebno; ako nije, odmah se preskače kombinacija dobivena iz generatora
 
 			for loop2 in range(0, novcic_len):
 				novcic = novcic_kom[loop2]  # definira varijablu novcic za vrijednost loop2 u listi s kombinacijama za novcic
-				if (max(poliedar) + max(novcic)) > 12 or (min(poliedar) + min(novcic)) < 2:  # provjerava da ne postoji mogućnost da se dobi broj veći od 12, ili broj manji od 2, ako postoji automatski odbacuje kombinaciju; puno ubrzava rad programa
+				if (max(poliedar) + max(novcic)) > 12 or (min(poliedar) + min(novcic)) < 2:  # provjerava da ne postoji mogućnost da se dobi broj veći od 12, ili broj manji od 2. - Even Fibonacci numbers, ako postoji automatski odbacuje kombinaciju; puno ubrzava rad programa
 					continue
 				# varijable test(broj) traže broj kombinacija od kojih se može složiti neki broj od novcica i poliedra; prvo se čiste(dodjeljuje im se vrijednost 0 prije provjeravanja)
 				test2 = 0
@@ -51,7 +51,7 @@ def checker(arg):
 				test10 = 0
 				test11 = 0
 				test12 = 0
-				# ove dvije for formule ispod i if u njima dodjeljuju vrijednost varijablama test(broj) ovisno o broju kombinacija na koji se može složiti određeni broj od 2 do 12 od novcica i poliedra
+				# ove dvije for formule ispod i if u njima dodjeljuju vrijednost varijablama test(broj) ovisno o broju kombinacija na koji se može složiti određeni broj od 2. - Even Fibonacci numbers do 12 od novcica i poliedra
 				for x in poliedar:
 					for y in novcic:
 						zbroj = x + y
