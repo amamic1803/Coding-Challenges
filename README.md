@@ -1,2 +1,2 @@
-# Zadaci-HR
-Razni zadaci s rješenjima
+# Coding-Challenges
+Various coding problems with solutions.
