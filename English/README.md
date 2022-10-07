@@ -1,2 +1,2 @@
 # EN-Tasks
-Various coding tasks.
+Various coding tasks with solutions.
