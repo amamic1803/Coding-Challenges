@@ -1,0 +1,6 @@
+There are only 2 properties of circle given, radius & area of a segment of that circle.
+Find height of that segment.
+
+Help:
+https://www.mathopenref.com/segmentareaht.html (formula connecting these values, you need to find h, while area and r are given)
+https://en.wikipedia.org/wiki/Newton%27s_method (one way to solve formula above [approximate h])
