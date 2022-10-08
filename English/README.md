@@ -1,2 +1,2 @@
 # EN-Tasks
-Various english language coding problems with solutions.
+Various coding problems with solutions.
