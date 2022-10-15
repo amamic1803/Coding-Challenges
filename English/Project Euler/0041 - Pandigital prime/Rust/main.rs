@@ -36,7 +36,7 @@ fn vec_to_int(vector: Vec<i64>) -> i64 {
     integer
 }
 
-fn quickperm(mut a: Vec<i64>) -> Vec<Vec<i64>>{
+fn quickperm(mut a: Vec<i64>) -> Vec<Vec<i64>> {
     let mut permutations: Vec<Vec<i64>> = vec![a.clone()];
     let n = a.len();
     let mut p: Vec<u8> = vec![0; n];
