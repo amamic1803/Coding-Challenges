@@ -1,5 +1,5 @@
 fn main() {
-    let input = include_str!("../input.txt");
+    let input = include_str!("../../../input.txt");
     let mut score: u32 = 0;
     let mut game_values: Vec<&str>;
     for game in input.split("\n") {
