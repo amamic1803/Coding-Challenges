@@ -1,7 +1,5 @@
-use std::fs;
-
 fn main() {
-    let input = fs::read_to_string("input.txt").unwrap();
+    let input = include_str!("../input.txt");
     let mut elf_calories: Vec<u64> = vec![];
     let mut curr_calorie: u64 = 0;
     for line in input.split("\n") {
