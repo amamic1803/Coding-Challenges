@@ -1,5 +1,5 @@
 fn main() {
-    let input = include_str!("../input.txt");
+    let input = include_str!("../../../input.txt");
     let mut elf_calories: Vec<u64> = vec![];
     let mut curr_calorie: u64 = 0;
     for line in input.split("\n") {
