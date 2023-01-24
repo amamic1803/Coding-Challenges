@@ -53,3 +53,6 @@ for i in radnici:
         print(" ".join(map(str, i)))
     else:  # ako se radnikovo zeljeno radno vrijeme nalazi izvan vremena tvrtke on ce raditi kada radi i tvrtka (radno vrijeme tvrtke)
         print(" ".join(map(str, radno_vrijeme)))
+
+# cmd command to add extension to all files in a folder (for test-data):
+# ren *.* *.*.txt
