@@ -1,0 +1,1 @@
+void ch01_ex01(void);
