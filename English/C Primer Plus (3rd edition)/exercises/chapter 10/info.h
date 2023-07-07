@@ -1,3 +1,5 @@
+#define EXERCISES_CH10 11
+
 void ch10_ex01(void);
 void ch10_ex02(void);
 void ch10_ex03(void);
