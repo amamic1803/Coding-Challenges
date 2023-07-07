@@ -13,6 +13,12 @@ int main(int argc, char *argv[]) {
     int chapters;
     const char *filename;
     int chapter_num, exercise_num;
+    int help_flag = 0, list_flag = 0;
+    int i;
+
+    puts("******************************************************");
+    puts("******       C Primer Plus, Third Edition       ******");
+    puts("******************************************************");
 
     chapters = sizeof METADATA / sizeof METADATA[0];
     filename = get_filename(argv[0]);
@@ -23,10 +29,18 @@ int main(int argc, char *argv[]) {
         return -1;
     }
 
-    if (strcmp(argv[1], "--help") == 0) {
+    for (i = 1; i < argc; i++) {
+        if (strcmp(argv[i], "--help") == 0) {
+            help_flag = 1;
+        } else if (strcmp(argv[i], "--list") == 0) {
+            list_flag = 1;
+        }
+    }
+
+    if (help_flag) {
         help(filename);
         return 0;
-    } else if (strcmp(argv[1], "--list") == 0) {
+    } else if (list_flag) {
         list(chapters, METADATA);
         return 0;
     }
@@ -102,6 +116,8 @@ static void list(int chapters, const int *metadata) {
 }
 
 static void run(int chapter, int exercise, int arg_count, char **arg_values) {
+    printf("************    Chapter %02d Exercise %02d    ************\n", chapter, exercise);
+    puts("******************************************************\n");
     switch (chapter) {
         case 1: {
             ch01_ex01();
@@ -488,6 +504,38 @@ static void run(int chapter, int exercise, int arg_count, char **arg_values) {
             switch (exercise) {
                 case 1: {
                     ch11_ex01();
+                    break;
+                }
+                case 2: {
+                    ch11_ex02();
+                    break;
+                }
+                case 3: {
+                    ch11_ex03();
+                    break;
+                }
+                case 4: {
+                    ch11_ex04();
+                    break;
+                }
+                case 5: {
+                    ch11_ex05();
+                    break;
+                }
+                case 6: {
+                    ch11_ex06();
+                    break;
+                }
+                case 7: {
+                    ch11_ex07();
+                    break;
+                }
+                case 8: {
+                    ch11_ex08();
+                    break;
+                }
+                case 9: {
+                    ch11_ex09();
                     break;
                 }
                 default: {
