@@ -538,6 +538,10 @@ static void run(int chapter, int exercise, int arg_count, char **arg_values) {
                     ch11_ex09();
                     break;
                 }
+                case 10: {
+                    ch11_ex10();
+                    break;
+                }
                 case 12: {
                     ch11_ex12(arg_count, arg_values);
                     break;
