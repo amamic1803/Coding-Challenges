@@ -538,6 +538,22 @@ static void run(int chapter, int exercise, int arg_count, char **arg_values) {
                     ch11_ex09();
                     break;
                 }
+                case 12: {
+                    ch11_ex12(arg_count, arg_values);
+                    break;
+                }
+                case 13: {
+                    ch11_ex13(arg_count, arg_values);
+                    break;
+                }
+                case 14: {
+                    ch11_ex14();
+                    break;
+                }
+                case 15: {
+                    ch11_ex15(arg_count, arg_values);
+                    break;
+                }
                 default: {
                     printf("Error!");
                     break;
