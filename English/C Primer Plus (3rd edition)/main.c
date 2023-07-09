@@ -150,7 +150,7 @@ static void run(int chapter, int exercise, int arg_count, char **arg_values) {
                     break;
                 }
                 default: {
-                    printf("Error!");
+                    fprintf(stderr, "Error!");
                     break;
                 }
             }
@@ -183,7 +183,7 @@ static void run(int chapter, int exercise, int arg_count, char **arg_values) {
                     break;
                 }
                 default: {
-                    printf("Error!");
+                    fprintf(stderr, "Error!");
                     break;
                 }
             }
@@ -212,7 +212,7 @@ static void run(int chapter, int exercise, int arg_count, char **arg_values) {
                     break;
                 }
                 default: {
-                    printf("Error!");
+                    fprintf(stderr, "Error!");
                     break;
                 }
             }
@@ -245,7 +245,7 @@ static void run(int chapter, int exercise, int arg_count, char **arg_values) {
                     break;
                 }
                 default: {
-                    printf("Error!");
+                    fprintf(stderr, "Error!");
                     break;
                 }
             }
@@ -310,7 +310,7 @@ static void run(int chapter, int exercise, int arg_count, char **arg_values) {
                     break;
                 }
                 default: {
-                    printf("Error!");
+                    fprintf(stderr, "Error!");
                     break;
                 }
             }
@@ -359,7 +359,7 @@ static void run(int chapter, int exercise, int arg_count, char **arg_values) {
                     break;
                 }
                 default: {
-                    printf("Error!");
+                    fprintf(stderr, "Error!");
                     break;
                 }
             }
@@ -396,7 +396,7 @@ static void run(int chapter, int exercise, int arg_count, char **arg_values) {
                     break;
                 }
                 default: {
-                    printf("Error!");
+                    fprintf(stderr, "Error!");
                     break;
                 }
             }
@@ -441,7 +441,7 @@ static void run(int chapter, int exercise, int arg_count, char **arg_values) {
                     break;
                 }
                 default: {
-                    printf("Error!");
+                    fprintf(stderr, "Error!");
                     break;
                 }
             }
@@ -494,7 +494,7 @@ static void run(int chapter, int exercise, int arg_count, char **arg_values) {
                     break;
                 }
                 default: {
-                    printf("Error!");
+                    fprintf(stderr, "Error!");
                     break;
                 }
             }
@@ -563,14 +563,27 @@ static void run(int chapter, int exercise, int arg_count, char **arg_values) {
                     break;
                 }
                 default: {
-                    printf("Error!");
+                    fprintf(stderr,"Error!");
+                    break;
+                }
+            }
+            break;
+        }
+        case 12: {
+            switch (exercise) {
+                case 1: {
+                    ch12_ex01();
+                    break;
+                }
+                default: {
+                    fprintf(stderr, "Error!");
                     break;
                 }
             }
             break;
         }
         default: {
-            printf("Error!");
+            fprintf(stderr,"Error!");
             break;
         }
     }
