@@ -572,7 +572,15 @@ static void run(int chapter, int exercise, int arg_count, char **arg_values) {
         case 12: {
             switch (exercise) {
                 case 1: {
-                    ch12_ex01();
+                    ch12_ex01(arg_count, arg_values);
+                    break;
+                }
+                case 2: {
+                    ch12_ex02(arg_count, arg_values);
+                    break;
+                }
+                case 3: {
+                    ch12_ex03(arg_count, arg_values);
                     break;
                 }
                 default: {
