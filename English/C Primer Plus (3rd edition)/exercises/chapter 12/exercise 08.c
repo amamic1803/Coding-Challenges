@@ -31,4 +31,9 @@ void ch12_ex08(void) {
         printf("Enter the location in the file (non-numeric to quit): ");
         fflush(stdout);
     }
+
+    if (fclose(fp) != 0) {
+        fprintf(stderr, "Can't close %s\n", filename);
+        exit(EXIT_FAILURE);
+    }
 }

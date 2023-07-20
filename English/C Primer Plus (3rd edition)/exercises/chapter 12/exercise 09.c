@@ -29,4 +29,9 @@ void ch12_ex09(int argc, char **argv) {
             printf("%s", line);
         }
     }
+
+    if (fclose(fp) != 0) {
+        printf("Can't close %s\n", argv[2]);
+        exit(EXIT_FAILURE);
+    }
 }
