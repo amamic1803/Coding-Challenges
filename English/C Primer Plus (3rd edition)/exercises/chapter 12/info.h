@@ -6,3 +6,4 @@ void ch12_ex03(int argc, char **argv);
 void ch12_ex04(void);
 void ch12_ex05(int argc, char **argv);
 void ch12_ex06(int argc, char **argv);
+void ch12_ex07(void);
