@@ -10,3 +10,5 @@ void ch12_ex07(void);
 void ch12_ex08(void);
 void ch12_ex09(int argc, char **argv);
 void ch12_ex10(void);
+void ch12_ex11(void);
+void ch12_ex12(void);
