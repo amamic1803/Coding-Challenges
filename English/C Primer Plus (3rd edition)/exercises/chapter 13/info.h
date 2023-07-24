@@ -7,3 +7,5 @@ void ch13_ex04(void);
 void ch13_ex05(void);
 void ch13_ex06(void);
 void ch13_ex07(void);
+void ch13_ex08(void);
+void ch13_ex09(void);
