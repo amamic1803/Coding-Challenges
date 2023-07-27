@@ -5,7 +5,6 @@
 void ch12_ex01(int argc, char **argv) {
     FILE *file_src;
     FILE *file_dst;
-    int i;
     size_t bytes_read;
     char buffer[1024];
 
