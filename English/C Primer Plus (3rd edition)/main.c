@@ -686,7 +686,7 @@ static void run(int chapter, int exercise, int arg_count, char **arg_values) {
                     break;
                 }
                 case 2: {
-                    //ch14_ex02();
+                    ch14_ex02();
                     break;
                 }
                 default: {
