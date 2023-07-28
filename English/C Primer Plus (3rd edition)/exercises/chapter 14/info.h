@@ -6,3 +6,4 @@ void ch14_ex03(void);
 void ch14_ex04(void);
 void ch14_ex05(void);
 void ch14_ex06(void);
+void ch14_ex07(void);
