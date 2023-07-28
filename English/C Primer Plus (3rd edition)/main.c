@@ -701,6 +701,10 @@ static void run(int chapter, int exercise, int arg_count, char **arg_values) {
                     ch14_ex05();
                     break;
                 }
+                case 6: {
+                    ch14_ex06();
+                    break;
+                }
                 default: {
                     fprintf(stderr,"Error!");
                     break;
