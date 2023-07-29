@@ -21,6 +21,7 @@ add_executable(
         "exercises/chapter 12/info.h"
         "exercises/chapter 13/info.h"
         "exercises/chapter 14/info.h"
+        "exercises/chapter 15/info.h"
         "exercises/chapter 01/exercise 01.c"
         "exercises/chapter 02/exercise 01.c"
         "exercises/chapter 02/exercise 02.c"
@@ -144,4 +145,10 @@ add_executable(
         "exercises/chapter 14/exercise 08.c"
         "exercises/chapter 14/exercise 09.c"
         "exercises/chapter 14/exercise 10.c"
+        "exercises/chapter 15/exercise 01.c"
+        "exercises/chapter 15/exercise 02.c"
+        "exercises/chapter 15/exercise 03.c"
+        "exercises/chapter 15/exercise 04.c"
+        "exercises/chapter 15/exercise 05.c"
+        "exercises/chapter 15/exercise 06.c"
 )
