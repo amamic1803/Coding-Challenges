@@ -772,11 +772,11 @@ static void run(int chapter, int exercise, int arg_count, char **arg_values) {
                     break;
                 }
                 case 3: {
-                    //ch16_ex03();
+                    ch16_ex03();
                     break;
                 }
                 case 4: {
-                    //ch16_ex04();
+                    ch16_ex04();
                     break;
                 }
                 case 5: {
