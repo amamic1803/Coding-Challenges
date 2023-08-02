@@ -29,3 +29,7 @@ teaches astronomy, physics, and programming. He received his B.S. from Californi
 from the University of California, Berkeley. His association with computers began with the computer modeling of star
 clusters. Stephen has authored or coauthored over a dozen books for The Waite Group, including _New C Primer Plus_ and
 _Certified Course in Visual Basic 4_.
+
+**EBook (PDF):**
+
+[The Waite Group's C primer plus by Stephen Prata (Internet Archive)](https://archive.org/details/waitegroupscprim00prat)
