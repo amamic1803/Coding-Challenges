@@ -809,7 +809,7 @@ static void run(int chapter, int exercise, int arg_count, char **arg_values) {
                     break;
                 }
                 case 2: {
-                    //ch17_ex02();
+                    ch17_ex02();
                     break;
                 }
                 case 3: {

@@ -41,13 +41,13 @@ void ch17_ex01(void) {
         prev = NULL;
         current = head;
         while (current != NULL) {
-            printf("Movie: %s Rating: %d\n", current->title, current->rating);
+            printf("Movie: %s   Rating: %d\n", current->title, current->rating);
             prev = current;
             current = current->next;
         }
         printf("\nHere is the movie list in reverse order:\n");
         while (prev != NULL) {
-            printf("Movie: %s Rating: %d\n", prev->title, prev->rating);
+            printf("Movie: %s   Rating: %d\n", prev->title, prev->rating);
             prev = prev->prev;
         }
     }
