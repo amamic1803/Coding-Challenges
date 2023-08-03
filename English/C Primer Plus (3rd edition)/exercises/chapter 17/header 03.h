@@ -1,5 +1,5 @@
-#ifndef CH17_EX02_H
-#define CH17_EX02_H
+#ifndef CH17_EX03_H
+#define CH17_EX03_H
 
 #define TSIZE 45
 struct film {

@@ -169,6 +169,7 @@ add_executable(
         "exercises/chapter 17/exercise 03.c"
         "exercises/chapter 17/header 03.h"
         "exercises/chapter 17/exercise 04.c"
+        "exercises/chapter 17/header 04.h"
         "exercises/chapter 17/exercise 05.c"
         "exercises/chapter 17/exercise 06.c"
         "exercises/chapter 17/exercise 07.c"
