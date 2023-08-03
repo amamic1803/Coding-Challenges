@@ -7,3 +7,4 @@ void ch17_ex04(void);
 void ch17_ex05(void);
 void ch17_ex06(void);
 void ch17_ex07(void);
+void ch17_ex08(void);
