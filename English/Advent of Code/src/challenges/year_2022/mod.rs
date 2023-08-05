@@ -20,11 +20,11 @@ use day_04::day_04;
 use day_05::day_05;
 use day_06::day_06;
 use day_07::day_07;
-use day_08::*;
-use day_09::*;
-use day_10::*;
-use day_11::*;
-use day_12::*;
+use day_08::day_08;
+use day_09::day_09;
+use day_10::day_10;
+use day_11::day_11;
+use day_12::day_12;
 
 
 pub(crate) fn year_2022() -> Year {
@@ -38,11 +38,11 @@ pub(crate) fn year_2022() -> Year {
             Some(day_05()),
             Some(day_06()),
             Some(day_07()),
-            None,
-            None,
-            None,
-            None,
-            None,
+            Some(day_08()),
+            Some(day_09()),
+            Some(day_10()),
+            Some(day_11()),
+            Some(day_12()),
             None,
             None,
             None,

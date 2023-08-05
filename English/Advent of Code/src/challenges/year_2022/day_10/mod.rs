@@ -1,13 +1,23 @@
-fn main() {
-    let input = include_str!("input.txt");
+use crate::challenges::Day;
 
+pub(crate) fn day_10() -> Day {
+    Day::new(
+        include_str!("text.txt"),
+        include_str!("input.txt"),
+        part1,
+        part2,
+    )
+}
+
+
+fn part1(input: &str) {
     let mut register_state: [i32; 2] = [1; 2];
     let mut result: i32 = 0;
     let wanted_cycles: [i32; 6] = [20, 60, 100, 140, 180, 220];
     let mut wanted_cycle_ind = 0;
     let mut cycle: i32 = 0;
-    for command in input.trim().split("\n") {
-        let mut command_split = command.split(" ");
+    for command in input.trim().lines() {
+        let mut command_split = command.split(' ');
         match command_split.next().unwrap() {
             "noop" => {
                 cycle += 1;
@@ -31,15 +41,17 @@ fn main() {
         }
     }
     println!("{}", result);
+}
 
+fn part2(input: &str) {
     let mut register_state: i32 = 1;
     let mut cycle: i32 = 0;
     let mut render: String = String::new();
-    let mut commands = input.trim().split("\n");
+    let mut commands = input.trim().lines();
     let mut prev_command: [i32; 2] = [0; 2];
     while cycle < 240 {
         if prev_command[0] == 0 {
-            let mut command_split = commands.next().unwrap().split(" ");
+            let mut command_split = commands.next().unwrap().split(' ');
             match command_split.next().unwrap() {
                 "noop" => {
                     prev_command[0] = 1;
@@ -56,9 +68,9 @@ fn main() {
         }
 
         if (register_state - (cycle % 40)).abs() < 2 {
-            render.push_str("#");
+            render.push('#');
         } else {
-            render.push_str(".");
+            render.push('.');
         }
 
         prev_command[0] -= 1;

@@ -1,32 +1,24 @@
+use crate::challenges::Day;
 use std::collections::VecDeque;
 
+pub(crate) fn day_12() -> Day {
+    Day::new(
+        include_str!("text.txt"),
+        include_str!("input.txt"),
+        part1,
+        part2,
+    )
+}
 
-fn main() {
-    let input = include_str!("input.txt");
 
-    let mut height_map: Vec<Vec<u32>> = vec![];
+fn part1(input: &str) {
+    let (height_map, loc_start, loc_end) = parse_input(input);
+    println!("{}", dijkstra_1(&height_map, loc_start, loc_end));
+}
 
-    let mut loc_start: [usize; 2] = [0; 2];
-    let mut loc_end: [usize; 2] = [0; 2];
-
-    for (curr_row, line) in input.trim().lines().enumerate() {
-        let mut current_row: Vec<u32> = vec![];
-        for (curr_col, x) in line.chars().enumerate() {
-            if x == 'S' {
-                loc_start = [curr_row, curr_col];
-            } else if x == 'E' {
-                loc_end = [curr_row, curr_col];
-            }
-            current_row.push(char_value(x));
-        }
-        height_map.push(current_row);
-    }
-
-    let fewest_steps_1 = dijkstra_1(&height_map, loc_start, loc_end);
-    println!("{}", fewest_steps_1);
-
-    let fewest_steps_2 = dijkstra_2(&height_map, loc_end, 0);
-    println!("{}", fewest_steps_2);
+fn part2(input: &str) {
+    let (height_map, _, loc_end) = parse_input(input);
+    println!("{}", dijkstra_2(&height_map, loc_end, 0));
 }
 
 fn dijkstra_1(height_map: &Vec<Vec<u32>>, loc_start: [usize; 2], loc_end: [usize; 2]) -> u32 {
@@ -160,4 +152,26 @@ fn char_value(mut character: char) -> u32 {
         _ => {},
     }
     character as u32 - 'a' as u32
+}
+
+fn parse_input(input: &str) -> (Vec<Vec<u32>>, [usize; 2], [usize; 2]) {
+    let mut height_map: Vec<Vec<u32>> = vec![];
+
+    let mut loc_start: [usize; 2] = [0; 2];
+    let mut loc_end: [usize; 2] = [0; 2];
+
+    for (curr_row, line) in input.trim().lines().enumerate() {
+        let mut current_row: Vec<u32> = vec![];
+        for (curr_col, x) in line.chars().enumerate() {
+            if x == 'S' {
+                loc_start = [curr_row, curr_col];
+            } else if x == 'E' {
+                loc_end = [curr_row, curr_col];
+            }
+            current_row.push(char_value(x));
+        }
+        height_map.push(current_row);
+    }
+
+    (height_map, loc_start, loc_end)
 }

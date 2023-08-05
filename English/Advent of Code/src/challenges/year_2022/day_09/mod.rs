@@ -1,12 +1,22 @@
-fn main() {
-    let input = include_str!("input.txt");
+use crate::challenges::Day;
 
+pub(crate) fn day_09() -> Day {
+    Day::new(
+        include_str!("text.txt"),
+        include_str!("input.txt"),
+        part1,
+        part2,
+    )
+}
+
+
+fn part1(input: &str) {
     let mut head_pos: [i64; 2] = [0; 2];
     let mut tail_pos: [i64; 2] = [0; 2];
     let mut visited: Vec<[i64; 2]> = vec![tail_pos];
 
-    for command in input.trim().split("\n") {
-        let mut splitt = command.split(" ");
+    for command in input.trim().lines() {
+        let mut splitt = command.split(' ');
         let side = splitt.next().unwrap();
         let mut steps: i64 = splitt.next().unwrap().parse::<i64>().unwrap();
         while steps != 0 {
@@ -57,12 +67,13 @@ fn main() {
         }
     }
     println!("{}", visited.len());
+}
 
-    // PART TWO
+fn part2(input: &str) {
     let mut knot_pos: [[i64; 2]; 10] = [[0; 2]; 10];
     let mut visited: Vec<[i64; 2]> = vec![knot_pos[0]];
-    for command in input.trim().split("\n") {
-        let mut splitt = command.split(" ");
+    for command in input.trim().lines() {
+        let mut splitt = command.split(' ');
         let side = splitt.next().unwrap();
         let mut steps: i64 = splitt.next().unwrap().parse::<i64>().unwrap();
         while steps != 0 {
@@ -78,39 +89,35 @@ fn main() {
                 if ((knot_pos[i - 1][0] - knot_pos[i][0]).abs() > 1) || ((knot_pos[i - 1][1] - knot_pos[i][1]).abs() > 1) {
                     let temp2_pos = knot_pos[i];
 
-                    if ((knot_pos[i - 1][0] - knot_pos[i][0]).abs() > 1) && ((temp_pos[0] - knot_pos[i][0]).abs() == 1) && ((temp_pos[1] - knot_pos[i][1]).abs() == 0) {
+                    if (((knot_pos[i - 1][0] - knot_pos[i][0]).abs() > 1) && ((temp_pos[0] - knot_pos[i][0]).abs() == 1) && ((temp_pos[1] - knot_pos[i][1]).abs() == 0)) ||
+                        (((knot_pos[i - 1][1] - knot_pos[i][1]).abs() > 1) && ((temp_pos[1] - knot_pos[i][1]).abs() == 1) && ((temp_pos[0] - knot_pos[i][0]).abs() == 0)) {
                         knot_pos[i][0] += knot_pos[i - 1][0] - temp_pos[0];
                         knot_pos[i][1] += knot_pos[i - 1][1] - temp_pos[1];
-                    } else if ((knot_pos[i - 1][1] - knot_pos[i][1]).abs() > 1) && ((temp_pos[1] - knot_pos[i][1]).abs() == 1) && ((temp_pos[0] - knot_pos[i][0]).abs() == 0) {
-                        knot_pos[i][0] += knot_pos[i - 1][0] - temp_pos[0];
-                        knot_pos[i][1] += knot_pos[i - 1][1] - temp_pos[1];
-                    } else {
-                        if ((knot_pos[i][0] - knot_pos[i - 1][0]).abs() > 1) && ((knot_pos[i][1] - knot_pos[i - 1][1]).abs() > 1) {
-                            if knot_pos[i][0] - knot_pos[i - 1][0] > 0 {
-                                knot_pos[i][0] -= 1;
-                            } else {
-                                knot_pos[i][0] += 1;
-                            }
-                            if knot_pos[i][1] - knot_pos[i - 1][1] > 0 {
-                                knot_pos[i][1] -= 1;
-                            } else {
-                                knot_pos[i][1] += 1;
-                            }
-                        } else if (knot_pos[i][0] - knot_pos[i - 1][0]).abs() > 1 {
-                            if knot_pos[i][0] - knot_pos[i - 1][0] > 0 {
-                                knot_pos[i][0] -= 1;
-                            } else {
-                                knot_pos[i][0] += 1;
-                            }
-                            knot_pos[i][1] = knot_pos[i - 1][1];
-                        } else if (knot_pos[i][1] - knot_pos[i - 1][1]).abs() > 1 {
-                            if knot_pos[i][1] - knot_pos[i - 1][1] > 0 {
-                                knot_pos[i][1] -= 1;
-                            } else {
-                                knot_pos[i][1] += 1;
-                            }
-                            knot_pos[i][0] = knot_pos[i - 1][0];
+                    } else if ((knot_pos[i][0] - knot_pos[i - 1][0]).abs() > 1) && ((knot_pos[i][1] - knot_pos[i - 1][1]).abs() > 1) {
+                        if knot_pos[i][0] - knot_pos[i - 1][0] > 0 {
+                            knot_pos[i][0] -= 1;
+                        } else {
+                            knot_pos[i][0] += 1;
                         }
+                        if knot_pos[i][1] - knot_pos[i - 1][1] > 0 {
+                            knot_pos[i][1] -= 1;
+                        } else {
+                            knot_pos[i][1] += 1;
+                        }
+                    } else if (knot_pos[i][0] - knot_pos[i - 1][0]).abs() > 1 {
+                        if knot_pos[i][0] - knot_pos[i - 1][0] > 0 {
+                            knot_pos[i][0] -= 1;
+                        } else {
+                            knot_pos[i][0] += 1;
+                        }
+                        knot_pos[i][1] = knot_pos[i - 1][1];
+                    } else if (knot_pos[i][1] - knot_pos[i - 1][1]).abs() > 1 {
+                        if knot_pos[i][1] - knot_pos[i - 1][1] > 0 {
+                            knot_pos[i][1] -= 1;
+                        } else {
+                            knot_pos[i][1] += 1;
+                        }
+                        knot_pos[i][0] = knot_pos[i - 1][0];
                     }
 
                     temp_pos = temp2_pos;

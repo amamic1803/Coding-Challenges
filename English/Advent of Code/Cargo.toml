@@ -1,5 +1,5 @@
 [package]
-name = "Advent_of_Code"
+name = "advent_of_code"
 description = "Advent of Code solutions in Rust"
 version = "0.1.0"
 edition = "2021"
