@@ -2,12 +2,18 @@ mod year_2015;
 mod year_2016;
 mod year_2017;
 mod year_2018;
+mod year_2019;
+mod year_2020;
+mod year_2021;
 mod year_2022;
 
 use year_2015::year_2015;
 use year_2016::year_2016;
 use year_2017::year_2017;
 use year_2018::year_2018;
+use year_2019::year_2019;
+use year_2020::year_2020;
+use year_2021::year_2021;
 use year_2022::year_2022;
 
 
@@ -17,9 +23,9 @@ pub(crate) fn challenges() -> Challenges {
         Some(year_2016()),
         Some(year_2017()),
         Some(year_2018()),
-        None,
-        None,
-        None,
+        Some(year_2019()),
+        Some(year_2020()),
+        Some(year_2021()),
         Some(year_2022()),
     ])
 }
