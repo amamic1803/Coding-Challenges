@@ -1,13 +1,32 @@
-fn main() {
-    let input = include_str!("input.txt");
-    let mut contain: u64 = 0;
-    let mut overlap: u64 = 0;
-    let mut elves: Vec<u64>;
-    for line in input.trim().split("\n") {
+use crate::challenges::Day;
+
+pub(crate) fn day_04() -> Day {
+    Day::new(
+        include_str!("text.txt"),
+        include_str!("input.txt"),
+        part1,
+        part2,
+    )
+}
+
+
+fn part1(input: &str) {
+    println!("{}", process_input(input).0);
+}
+
+fn part2(input: &str) {
+    println!("{}", process_input(input).1);
+}
+
+fn process_input(input: &str) -> (usize, usize) {
+    let mut contain: usize = 0;
+    let mut overlap: usize = 0;
+    let mut elves: Vec<usize>;
+    for line in input.trim().lines() {
         elves = vec![];
-        for elf in line.split(",") {
-            for sectors in elf.split("-") {
-                elves.push(sectors.parse::<u64>().unwrap())
+        for elf in line.split(',') {
+            for sectors in elf.split('-') {
+                elves.push(sectors.parse::<usize>().unwrap())
             }
         }
         if ((elves[0] <= elves[2]) && (elves[1] >= elves[3])) ||
@@ -19,5 +38,6 @@ fn main() {
             overlap += 1;
         }
     }
-    println!("{}\n{}", contain, overlap);
+
+    (contain, overlap)
 }
