@@ -1,47 +1,27 @@
-#[allow(clippy::collapsible_if)]
-#[allow(clippy::collapsible_else_if)]
-fn main() {
-    let input = include_str!("input.txt");
+use crate::challenges::Day;
 
-    let mut base_dir = Folder::new("/".to_string());
-
-    let mut current_location: Vec<String> = vec!["/".to_string()];
-
-    for line in input.trim().split('\n') {
-        let line_contents: Vec<&str> = line.trim().split(' ').collect();
-
-        if line_contents[0] == String::from('$') {
-            if line_contents[1] == "cd" {
-                if line_contents[2] == ".." {
-                    if current_location.len() > 1 {current_location.pop();}
-                } else if line_contents[2] == "/" {
-                    current_location = vec!["/".to_string()];
-                } else {
-                    current_location.push(line_contents[2].to_string());
-                }
-            }
-        } else {
-            if line_contents[0] == "dir" {
-                base_dir.new_entity(&current_location, line_contents[1].to_string(), None);
-            } else {
-                base_dir.new_entity(&current_location, line_contents[1].to_string(), Some(line_contents[0].parse::<u64>().unwrap()));
-            }
-        }
-    }
-    part1_solution(&base_dir);
-    part2_solution(&base_dir);
+pub(crate) fn day_07() -> Day {
+    Day::new(
+        include_str!("text.txt"),
+        include_str!("input.txt"),
+        part1,
+        part2,
+    )
 }
 
-fn part1_solution(base_dir: &Folder) {
+
+fn part1(input: &str) {
+    let base_dir = parse_input(input);
     let mut total_size = 0;
-    part1_recursion(base_dir, &mut total_size);
+    part1_recursion(&base_dir, &mut total_size);
     println!("{}", total_size);
 }
 
-fn part2_solution(base_dir: &Folder) {
+fn part2(input: &str) {
+    let base_dir = parse_input(input);
     let needed_space: u64 = 30_000_000 - (70_000_000 - base_dir.size());
     let mut min_del: u64 = 70_000_001;
-    part2_recursion(base_dir, needed_space, &mut min_del);
+    part2_recursion(&base_dir, needed_space, &mut min_del);
     println!("{}", min_del);
 }
 
@@ -76,8 +56,6 @@ impl Folder {
         }
     }
 
-    #[allow(clippy::collapsible_if)]
-    #[allow(clippy::collapsible_else_if)]
     fn new_entity(&mut self, location: &[String], name: String, size: Option<u64>) {
         if location.len() > 1 {
             match self.folders.iter_mut().find(|f| f.name == location[1]) {
@@ -125,4 +103,32 @@ fn part2_recursion(folder: &Folder, needed_space: u64, min_del: &mut u64) {
     for subfolder in &folder.folders {
         part2_recursion(subfolder, needed_space, min_del);
     }
+}
+
+fn parse_input(input: &str) -> Folder {
+    let mut base_dir = Folder::new("/".to_string());
+
+    let mut current_location: Vec<String> = vec!["/".to_string()];
+
+    for line in input.trim().lines() {
+        let line_contents: Vec<&str> = line.trim().split(' ').collect();
+
+        if line_contents[0] == String::from('$') {
+            if line_contents[1] == "cd" {
+                if line_contents[2] == ".." {
+                    if current_location.len() > 1 {current_location.pop();}
+                } else if line_contents[2] == "/" {
+                    current_location = vec!["/".to_string()];
+                } else {
+                    current_location.push(line_contents[2].to_string());
+                }
+            }
+        } else if line_contents[0] == "dir" {
+            base_dir.new_entity(&current_location, line_contents[1].to_string(), None);
+        } else {
+            base_dir.new_entity(&current_location, line_contents[1].to_string(), Some(line_contents[0].parse::<u64>().unwrap()));
+        }
+    }
+
+    base_dir
 }

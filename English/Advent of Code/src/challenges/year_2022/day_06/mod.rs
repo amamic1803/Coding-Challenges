@@ -1,10 +1,24 @@
-fn main() {
-    let input = include_str!("input.txt");
+use crate::challenges::Day;
+
+pub(crate) fn day_06() -> Day {
+    Day::new(
+        include_str!("text.txt"),
+        include_str!("input.txt"),
+        part1,
+        part2,
+    )
+}
+
+
+fn part1(input: &str) {
     let mut characters = 4;
     while !start_of_packet(&input[(characters - 4)..characters]) {
         characters += 1;
     }
     println!("{}", characters);
+}
+
+fn part2(input: &str) {
     let mut characters = 14;
     while !start_of_packet(&input[(characters - 14)..characters]) {
         characters += 1;
@@ -18,7 +32,7 @@ fn start_of_packet(inp: &str) -> bool {
         for y in inp.chars() {
             if x == y {counted += 1;}
         }
-        if counted > 1 {return false}
+        if counted > 1 {return false;}
     }
-    return true
+    true
 }
