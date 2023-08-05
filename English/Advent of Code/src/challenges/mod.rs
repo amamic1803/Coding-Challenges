@@ -1,13 +1,19 @@
+mod year_2015;
+mod year_2016;
+mod year_2017;
 mod year_2022;
 
+use year_2015::year_2015;
+use year_2016::year_2016;
+use year_2017::year_2017;
 use year_2022::year_2022;
 
 
 pub(crate) fn challenges() -> Challenges {
     Challenges::new([
-        None,
-        None,
-        None,
+        Some(year_2015()),
+        Some(year_2016()),
+        Some(year_2017()),
         None,
         None,
         None,
@@ -117,7 +123,7 @@ pub struct Day {
 impl Day {
     pub(crate) fn new(challenge_text: &str, default_input: &str, part1: fn(&str), part2: fn(&str)) -> Self {
         Self {
-            name: challenge_text.lines().next().unwrap().to_string(),
+            name: challenge_text.lines().next().unwrap_or("").to_string(),
             text: String::from(challenge_text),
             default_input: String::from(default_input),
             part1,
