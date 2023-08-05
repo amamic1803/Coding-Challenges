@@ -17,17 +17,13 @@ fn part1(input: &str) {
         piles.push(vec![]);
     }
     let mut move_vec: Vec<&str>;
-    for line in input.lines() {
+    for line in input.trim_end().lines() {
         if line.contains('[') {
-            let mut found_items: usize = 1;
             for (ind, character) in line.chars().enumerate() {
-                if ind == (1 + (found_items - 1) * 4) {
-                    if character != " ".chars().next().unwrap() {
-                        piles[found_items - 1].insert(0, character);
-                    }
-                    found_items += 1;
+                if ind % 4 == 1 && character != ' ' {
+                    piles[ind / 4].insert(0, character);
                 }
-                if found_items == num_of_piles + 1 {break;}
+                if ind % 4 == 1 && (ind / 4) + 1 == num_of_piles {break;}
             }
         } else if line.contains("move") {
             move_vec = line.trim().split(' ').collect();
@@ -39,8 +35,8 @@ fn part1(input: &str) {
         }
     }
     let mut output: String = String::new();
-    for pile_part in piles {
-        output.push(pile_part[pile_part.len() - 1]);
+    for pile in piles {
+        output.push(pile[pile.len() - 1]);
     }
     println!("{}", output);
 }
@@ -52,23 +48,18 @@ fn part2(input: &str) {
         piles.push(vec![]);
     }
     let mut move_vec: Vec<&str>;
-    for line in input.trim().lines() {
+    for line in input.trim_end().lines() {
         if line.contains('[') {
-            let mut found_items: usize = 1;
             for (ind, character) in line.chars().enumerate() {
-                if ind == (1 + (found_items - 1) * 4) {
-                    if character != " ".chars().next().unwrap() {
-                        piles[found_items - 1].insert(0, character);
-                    }
-                    found_items += 1;
+                if ind % 4 == 1 && character != ' ' {
+                    piles[ind / 4].insert(0, character);
                 }
-                if found_items == num_of_piles + 1 {break;}
+                if ind % 4 == 1 && (ind / 4) + 1 == num_of_piles {break;}
             }
         } else if line.contains("move") {
             move_vec = line.trim().split(' ').collect();
             let insert_ind = piles[move_vec[5].parse::<usize>().unwrap() - 1].len();
             for _ in 0..move_vec[1].parse::<usize>().unwrap() {
-                println!("{:?} {}", piles.len(), piles[move_vec[3].parse::<usize>().unwrap() - 1].len());
                 let character: char = piles[move_vec[3].parse::<usize>().unwrap() - 1][piles[move_vec[3].parse::<usize>().unwrap() - 1].len() - 1];
                 piles[move_vec[5].parse::<usize>().unwrap() - 1].insert(insert_ind, character);
                 piles[move_vec[3].parse::<usize>().unwrap() - 1].pop();
@@ -83,6 +74,8 @@ fn part2(input: &str) {
 }
 
 fn count_piles(input: &str) -> usize {
+    // loops until it finds the line with the pile numbers and reads the last number
+
     let mut num_of_piles: usize = 0;
     for line in input.trim().lines() {
         if !line.contains('[') {
