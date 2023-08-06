@@ -2,7 +2,7 @@ use std::process::Command;
 
 
 #[test]
-fn day_01_part1() {
+fn year_2015_day_01_part1() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")
@@ -17,7 +17,7 @@ fn day_01_part1() {
 }
 
 #[test]
-fn day_01_part2() {
+fn year_2015_day_01_part2() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")
@@ -32,7 +32,7 @@ fn day_01_part2() {
 }
 
 #[test]
-fn day_02_part1() {
+fn year_2015_day_02_part1() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")
@@ -47,7 +47,7 @@ fn day_02_part1() {
 }
 
 #[test]
-fn day_02_part2() {
+fn year_2015_day_02_part2() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")
@@ -62,7 +62,7 @@ fn day_02_part2() {
 }
 
 #[test]
-fn day_03_part1() {
+fn year_2015_day_03_part1() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")
@@ -77,7 +77,7 @@ fn day_03_part1() {
 }
 
 #[test]
-fn day_03_part2() {
+fn year_2015_day_03_part2() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")
@@ -89,4 +89,64 @@ fn day_03_part2() {
     let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
 
     assert_eq!(stdout, "2341");
+}
+
+#[test]
+fn year_2015_day_04_part1() {
+    let output = Command::new("cargo")
+        .arg("run")
+        .arg("--")
+        .arg("2015")
+        .arg("4")
+        .arg("1")
+        .output()
+        .unwrap();
+    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
+
+    assert_eq!(stdout, "254575");
+}
+
+#[test]
+fn year_2015_day_04_part2() {
+    let output = Command::new("cargo")
+        .arg("run")
+        .arg("--")
+        .arg("2015")
+        .arg("4")
+        .arg("2")
+        .output()
+        .unwrap();
+    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
+
+    assert_eq!(stdout, "1038736");
+}
+
+#[test]
+fn year_2015_day_05_part1() {
+    let output = Command::new("cargo")
+        .arg("run")
+        .arg("--")
+        .arg("2015")
+        .arg("5")
+        .arg("1")
+        .output()
+        .unwrap();
+    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
+
+    assert_eq!(stdout, "255");
+}
+
+#[test]
+fn year_2015_day_05_part2() {
+    let output = Command::new("cargo")
+        .arg("run")
+        .arg("--")
+        .arg("2015")
+        .arg("5")
+        .arg("2")
+        .output()
+        .unwrap();
+    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
+
+    assert_eq!(stdout, "55");
 }

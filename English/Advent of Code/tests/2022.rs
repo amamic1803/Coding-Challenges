@@ -2,7 +2,7 @@ use std::process::Command;
 
 
 #[test]
-fn day_01_part1() {
+fn year_2022_day_01_part1() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")
@@ -17,7 +17,7 @@ fn day_01_part1() {
 }
 
 #[test]
-fn day_01_part2() {
+fn year_2022_day_01_part2() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")
@@ -32,7 +32,7 @@ fn day_01_part2() {
 }
 
 #[test]
-fn day_02_part1() {
+fn year_2022_day_02_part1() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")
@@ -47,7 +47,7 @@ fn day_02_part1() {
 }
 
 #[test]
-fn day_02_part2() {
+fn year_2022_day_02_part2() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")
@@ -62,7 +62,7 @@ fn day_02_part2() {
 }
 
 #[test]
-fn day_03_part1() {
+fn year_2022_day_03_part1() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")
@@ -77,7 +77,7 @@ fn day_03_part1() {
 }
 
 #[test]
-fn day_03_part2() {
+fn year_2022_day_03_part2() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")
@@ -92,7 +92,7 @@ fn day_03_part2() {
 }
 
 #[test]
-fn day_04_part1() {
+fn year_2022_day_04_part1() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")
@@ -107,7 +107,7 @@ fn day_04_part1() {
 }
 
 #[test]
-fn day_04_part2() {
+fn year_2022_day_04_part2() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")
@@ -122,7 +122,7 @@ fn day_04_part2() {
 }
 
 #[test]
-fn day_05_part1() {
+fn year_2022_day_05_part1() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")
@@ -137,7 +137,7 @@ fn day_05_part1() {
 }
 
 #[test]
-fn day_05_part2() {
+fn year_2022_day_05_part2() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")
@@ -152,7 +152,7 @@ fn day_05_part2() {
 }
 
 #[test]
-fn day_06_part1() {
+fn year_2022_day_06_part1() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")
@@ -167,7 +167,7 @@ fn day_06_part1() {
 }
 
 #[test]
-fn day_06_part2() {
+fn year_2022_day_06_part2() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")
@@ -182,7 +182,7 @@ fn day_06_part2() {
 }
 
 #[test]
-fn day_07_part1() {
+fn year_2022_day_07_part1() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")
@@ -197,7 +197,7 @@ fn day_07_part1() {
 }
 
 #[test]
-fn day_07_part2() {
+fn year_2022_day_07_part2() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")
@@ -212,7 +212,7 @@ fn day_07_part2() {
 }
 
 #[test]
-fn day_08_part1() {
+fn year_2022_day_08_part1() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")
@@ -227,7 +227,7 @@ fn day_08_part1() {
 }
 
 #[test]
-fn day_08_part2() {
+fn year_2022_day_08_part2() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")
@@ -242,7 +242,7 @@ fn day_08_part2() {
 }
 
 #[test]
-fn day_09_part1() {
+fn year_2022_day_09_part1() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")
@@ -257,7 +257,7 @@ fn day_09_part1() {
 }
 
 #[test]
-fn day_09_part2() {
+fn year_2022_day_09_part2() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")
@@ -272,7 +272,7 @@ fn day_09_part2() {
 }
 
 #[test]
-fn day_10_part1() {
+fn year_2022_day_10_part1() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")
@@ -287,7 +287,7 @@ fn day_10_part1() {
 }
 
 #[test]
-fn day_10_part2() {
+fn year_2022_day_10_part2() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")
@@ -304,7 +304,7 @@ fn day_10_part2() {
 }
 
 #[test]
-fn day_11_part1() {
+fn year_2022_day_11_part1() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")
@@ -319,7 +319,7 @@ fn day_11_part1() {
 }
 
 #[test]
-fn day_11_part2() {
+fn year_2022_day_11_part2() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")
@@ -334,7 +334,7 @@ fn day_11_part2() {
 }
 
 #[test]
-fn day_12_part1() {
+fn year_2022_day_12_part1() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")
@@ -349,7 +349,7 @@ fn day_12_part1() {
 }
 
 #[test]
-fn day_12_part2() {
+fn year_2022_day_12_part2() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")

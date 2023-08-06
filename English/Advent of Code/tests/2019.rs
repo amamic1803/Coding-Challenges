@@ -2,7 +2,7 @@ use std::process::Command;
 
 
 #[test]
-fn day_01_part1() {
+fn year_2019_day_01_part1() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")
@@ -17,7 +17,7 @@ fn day_01_part1() {
 }
 
 #[test]
-fn day_01_part2() {
+fn year_2019_day_01_part2() {
     let output = Command::new("cargo")
         .arg("run")
         .arg("--")
