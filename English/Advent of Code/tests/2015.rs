@@ -180,3 +180,33 @@ fn year_2015_day_06_part2() {
 
     assert_eq!(stdout, "14110788");
 }
+
+#[test]
+fn year_2015_day_07_part1() {
+    let output = Command::new("cargo")
+        .arg("run")
+        .arg("--")
+        .arg("2015")
+        .arg("7")
+        .arg("1")
+        .output()
+        .unwrap();
+    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
+
+    assert_eq!(stdout, "16076");
+}
+
+#[test]
+fn year_2015_day_07_part2() {
+    let output = Command::new("cargo")
+        .arg("run")
+        .arg("--")
+        .arg("2015")
+        .arg("7")
+        .arg("2")
+        .output()
+        .unwrap();
+    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
+
+    assert_eq!(stdout, "2797");
+}
