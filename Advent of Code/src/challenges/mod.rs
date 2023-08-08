@@ -41,10 +41,8 @@ impl Challenges {
         }
     }
     pub(crate) fn list(&self) {
-        for year in self.years.iter() {
-            if let Some(year) = year {
-                year.list();
-            }
+        for year in self.years.iter().flatten() {
+            year.list();
         }
     }
     pub(crate) fn show_text(&self, year_num: usize, day_num: usize) {
@@ -86,10 +84,8 @@ impl Year {
     }
     pub(crate) fn list(&self) {
         self.show_name();
-        for day in self.days.iter() {
-            if let Some(day) = day {
-                day.show_name();
-            }
+        for day in self.days.iter().flatten() {
+            day.show_name();
         }
     }
     pub(crate) fn show_text(&self, day_num: usize) {

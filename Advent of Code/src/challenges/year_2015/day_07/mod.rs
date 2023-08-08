@@ -52,7 +52,7 @@ enum Instruction<'a> {
 
 impl<'a> Instruction<'a> {
     fn new(line: &'a str) -> Self {
-        let line_elements: Vec<&str> = line.split(" ").collect();
+        let line_elements: Vec<&str> = line.split(' ').collect();
 
         if line.contains("NOT") {
             Self::Not(line_elements[1], line_elements[3])

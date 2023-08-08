@@ -66,10 +66,8 @@ impl Folder {
                     self.folders.push(new_folder);
                 }
             }
-        } else {
-            if !self.files.iter().any(|f| f.name == name) {
-                self.new_entity_here(name, size);
-            }
+        } else if !self.files.iter().any(|f| f.name == name) {
+            self.new_entity_here(name, size);
         }
     }
 
