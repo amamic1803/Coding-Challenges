@@ -7,6 +7,7 @@ mod day_04;
 mod day_05;
 mod day_06;
 mod day_07;
+mod day_08;
 
 use day_01::day_01;
 use day_02::day_02;
@@ -15,6 +16,7 @@ use day_04::day_04;
 use day_05::day_05;
 use day_06::day_06;
 use day_07::day_07;
+use day_08::day_08;
 
 
 pub(crate) fn year_2015() -> Year {
@@ -28,7 +30,7 @@ pub(crate) fn year_2015() -> Year {
             Some(day_05()),
             Some(day_06()),
             Some(day_07()),
-            None,
+            Some(day_08()),
             None,
             None,
             None,

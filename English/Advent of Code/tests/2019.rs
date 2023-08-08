@@ -1,32 +1,13 @@
-use std::process::Command;
+mod runner;
+use runner::run_test;
 
 
 #[test]
-fn year_2019_day_01_part1() {
-    let output = Command::new("cargo")
-        .arg("run")
-        .arg("--")
-        .arg("2019")
-        .arg("1")
-        .arg("1")
-        .output()
-        .unwrap();
-    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
-
-    assert_eq!(stdout, "3328306");
+fn year2019_day01_part1() {
+    run_test(2019, 1, 1, "3328306");
 }
 
 #[test]
-fn year_2019_day_01_part2() {
-    let output = Command::new("cargo")
-        .arg("run")
-        .arg("--")
-        .arg("2019")
-        .arg("1")
-        .arg("2")
-        .output()
-        .unwrap();
-    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
-
-    assert_eq!(stdout, "4989588");
+fn year2019_day01_part2() {
+    run_test(2019, 1, 2, "4989588");
 }

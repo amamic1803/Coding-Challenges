@@ -1,364 +1,124 @@
-use std::process::Command;
+mod runner;
+use runner::run_test;
 
 
 #[test]
-fn year_2022_day_01_part1() {
-    let output = Command::new("cargo")
-        .arg("run")
-        .arg("--")
-        .arg("2022")
-        .arg("1")
-        .arg("1")
-        .output()
-        .unwrap();
-    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
-
-    assert_eq!(stdout, "69289");
+fn year2022_day01_part1() {
+    run_test(2022, 1, 1, "69289");
 }
 
 #[test]
-fn year_2022_day_01_part2() {
-    let output = Command::new("cargo")
-        .arg("run")
-        .arg("--")
-        .arg("2022")
-        .arg("1")
-        .arg("2")
-        .output()
-        .unwrap();
-    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
-
-    assert_eq!(stdout, "205615");
+fn year2022_day01_part2() {
+    run_test(2022, 1, 2, "205615");
 }
 
 #[test]
-fn year_2022_day_02_part1() {
-    let output = Command::new("cargo")
-        .arg("run")
-        .arg("--")
-        .arg("2022")
-        .arg("2")
-        .arg("1")
-        .output()
-        .unwrap();
-    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
-
-    assert_eq!(stdout, "11873");
+fn year2022_day02_part1() {
+    run_test(2022, 2, 1, "11873");
 }
 
 #[test]
-fn year_2022_day_02_part2() {
-    let output = Command::new("cargo")
-        .arg("run")
-        .arg("--")
-        .arg("2022")
-        .arg("2")
-        .arg("2")
-        .output()
-        .unwrap();
-    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
-
-    assert_eq!(stdout, "12014");
+fn year2022_day02_part2() {
+    run_test(2022, 2, 2, "12014");
 }
 
 #[test]
-fn year_2022_day_03_part1() {
-    let output = Command::new("cargo")
-        .arg("run")
-        .arg("--")
-        .arg("2022")
-        .arg("3")
-        .arg("1")
-        .output()
-        .unwrap();
-    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
-
-    assert_eq!(stdout, "7878");
+fn year2022_day03_part1() {
+    run_test(2022, 3, 1, "7878");
 }
 
 #[test]
-fn year_2022_day_03_part2() {
-    let output = Command::new("cargo")
-        .arg("run")
-        .arg("--")
-        .arg("2022")
-        .arg("3")
-        .arg("2")
-        .output()
-        .unwrap();
-    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
-
-    assert_eq!(stdout, "2760");
+fn year2022_day03_part2() {
+    run_test(2022, 3, 2, "2760");
 }
 
 #[test]
-fn year_2022_day_04_part1() {
-    let output = Command::new("cargo")
-        .arg("run")
-        .arg("--")
-        .arg("2022")
-        .arg("4")
-        .arg("1")
-        .output()
-        .unwrap();
-    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
-
-    assert_eq!(stdout, "540");
+fn year2022_day04_part1() {
+    run_test(2022, 4, 1, "540");
 }
 
 #[test]
-fn year_2022_day_04_part2() {
-    let output = Command::new("cargo")
-        .arg("run")
-        .arg("--")
-        .arg("2022")
-        .arg("4")
-        .arg("2")
-        .output()
-        .unwrap();
-    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
-
-    assert_eq!(stdout, "872");
+fn year2022_day04_part2() {
+    run_test(2022, 4, 2, "872");
 }
 
 #[test]
-fn year_2022_day_05_part1() {
-    let output = Command::new("cargo")
-        .arg("run")
-        .arg("--")
-        .arg("2022")
-        .arg("5")
-        .arg("1")
-        .output()
-        .unwrap();
-    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
-
-    assert_eq!(stdout, "NTWZZWHFV");
+fn year2022_day05_part1() {
+    run_test(2022, 5, 1, "NTWZZWHFV");
 }
 
 #[test]
-fn year_2022_day_05_part2() {
-    let output = Command::new("cargo")
-        .arg("run")
-        .arg("--")
-        .arg("2022")
-        .arg("5")
-        .arg("2")
-        .output()
-        .unwrap();
-    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
-
-    assert_eq!(stdout, "BRZGFVBTJ");
+fn year2022_day05_part2() {
+    run_test(2022, 5, 2, "BRZGFVBTJ");
 }
 
 #[test]
-fn year_2022_day_06_part1() {
-    let output = Command::new("cargo")
-        .arg("run")
-        .arg("--")
-        .arg("2022")
-        .arg("6")
-        .arg("1")
-        .output()
-        .unwrap();
-    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
-
-    assert_eq!(stdout, "1287");
+fn year2022_day06_part1() {
+    run_test(2022, 6, 1, "1287");
 }
 
 #[test]
-fn year_2022_day_06_part2() {
-    let output = Command::new("cargo")
-        .arg("run")
-        .arg("--")
-        .arg("2022")
-        .arg("6")
-        .arg("2")
-        .output()
-        .unwrap();
-    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
-
-    assert_eq!(stdout, "3716");
+fn year2022_day06_part2() {
+    run_test(2022, 6, 2, "3716");
 }
 
 #[test]
-fn year_2022_day_07_part1() {
-    let output = Command::new("cargo")
-        .arg("run")
-        .arg("--")
-        .arg("2022")
-        .arg("7")
-        .arg("1")
-        .output()
-        .unwrap();
-    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
-
-    assert_eq!(stdout, "1432936");
+fn year2022_day07_part1() {
+    run_test(2022, 7, 1, "1432936");
 }
 
 #[test]
-fn year_2022_day_07_part2() {
-    let output = Command::new("cargo")
-        .arg("run")
-        .arg("--")
-        .arg("2022")
-        .arg("7")
-        .arg("2")
-        .output()
-        .unwrap();
-    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
-
-    assert_eq!(stdout, "272298");
+fn year2022_day07_part2() {
+    run_test(2022, 7, 2, "272298");
 }
 
 #[test]
-fn year_2022_day_08_part1() {
-    let output = Command::new("cargo")
-        .arg("run")
-        .arg("--")
-        .arg("2022")
-        .arg("8")
-        .arg("1")
-        .output()
-        .unwrap();
-    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
-
-    assert_eq!(stdout, "1829");
+fn year2022_day08_part1() {
+    run_test(2022, 8, 1, "1829");
 }
 
 #[test]
-fn year_2022_day_08_part2() {
-    let output = Command::new("cargo")
-        .arg("run")
-        .arg("--")
-        .arg("2022")
-        .arg("8")
-        .arg("2")
-        .output()
-        .unwrap();
-    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
-
-    assert_eq!(stdout, "291840");
+fn year2022_day08_part2() {
+    run_test(2022, 8, 2, "291840");
 }
 
 #[test]
-fn year_2022_day_09_part1() {
-    let output = Command::new("cargo")
-        .arg("run")
-        .arg("--")
-        .arg("2022")
-        .arg("9")
-        .arg("1")
-        .output()
-        .unwrap();
-    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
-
-    assert_eq!(stdout, "5858");
+fn year2022_day09_part1() {
+    run_test(2022, 9, 1, "5858");
 }
 
 #[test]
-fn year_2022_day_09_part2() {
-    let output = Command::new("cargo")
-        .arg("run")
-        .arg("--")
-        .arg("2022")
-        .arg("9")
-        .arg("2")
-        .output()
-        .unwrap();
-    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
-
-    assert_eq!(stdout, "2602");
+fn year2022_day09_part2() {
+    run_test(2022, 9, 2, "2602");
 }
 
 #[test]
-fn year_2022_day_10_part1() {
-    let output = Command::new("cargo")
-        .arg("run")
-        .arg("--")
-        .arg("2022")
-        .arg("10")
-        .arg("1")
-        .output()
-        .unwrap();
-    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
-
-    assert_eq!(stdout, "12880");
+fn year2022_day10_part1() {
+    run_test(2022, 10, 1, "12880");
 }
 
 #[test]
-fn year_2022_day_10_part2() {
-    let output = Command::new("cargo")
-        .arg("run")
-        .arg("--")
-        .arg("2022")
-        .arg("10")
-        .arg("2")
-        .output()
-        .unwrap();
-    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
-
+fn year2022_day10_part2() {
     let expected = "####..##....##..##..###....##.###..####.\n#....#..#....#.#..#.#..#....#.#..#.#....\n###..#.......#.#..#.#..#....#.#..#.###..\n#....#.......#.####.###.....#.###..#....\n#....#..#.#..#.#..#.#....#..#.#.#..#....\n#.....##...##..#..#.#.....##..#..#.####.";
-
-    assert_eq!(stdout, expected);
+    run_test(2022, 10, 2, expected);
 }
 
 #[test]
-fn year_2022_day_11_part1() {
-    let output = Command::new("cargo")
-        .arg("run")
-        .arg("--")
-        .arg("2022")
-        .arg("11")
-        .arg("1")
-        .output()
-        .unwrap();
-    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
-
-    assert_eq!(stdout, "55944");
+fn year2022_day11_part1() {
+    run_test(2022, 11, 1, "55944");
 }
 
 #[test]
-fn year_2022_day_11_part2() {
-    let output = Command::new("cargo")
-        .arg("run")
-        .arg("--")
-        .arg("2022")
-        .arg("11")
-        .arg("2")
-        .output()
-        .unwrap();
-    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
-
-    assert_eq!(stdout, "15117269860");
+fn year2022_day11_part2() {
+    run_test(2022, 11, 2, "15117269860");
 }
 
 #[test]
-fn year_2022_day_12_part1() {
-    let output = Command::new("cargo")
-        .arg("run")
-        .arg("--")
-        .arg("2022")
-        .arg("12")
-        .arg("1")
-        .output()
-        .unwrap();
-    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
-
-    assert_eq!(stdout, "528");
+fn year2022_day12_part1() {
+    run_test(2022, 12, 1, "528");
 }
 
 #[test]
-fn year_2022_day_12_part2() {
-    let output = Command::new("cargo")
-        .arg("run")
-        .arg("--")
-        .arg("2022")
-        .arg("12")
-        .arg("2")
-        .output()
-        .unwrap();
-    let stdout = String::from(String::from_utf8(output.stdout).unwrap().trim());
-
-    assert_eq!(stdout, "522");
+fn year2022_day12_part2() {
+    run_test(2022, 12, 2, "522");
 }
