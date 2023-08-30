@@ -28,16 +28,16 @@ jobs:
         run: rustup update
 
       - name: Build
-        run: cargo build --verbose --all-features
+        run: cargo build
 
       - name: Test
-        run: cargo test --verbose --all-features
+        run: cargo test
 
       - name: Docs
-        run: cargo doc --verbose --all-features
+        run: cargo doc --all-features
 
       - name: Clippy
-        run: cargo clippy --verbose --all-features -- -D warnings
+        run: cargo clippy --all-features -- -D warnings
 
   project-euler:
     name: Project Euler
@@ -58,13 +58,13 @@ jobs:
         run: rustup update
 
       - name: Build
-        run: cargo build --verbose --all-features
+        run: cargo build
 
       - name: Test
-        run: cargo test --verbose --all-features
+        run: cargo test
 
       - name: Docs
-        run: cargo doc --verbose --all-features
+        run: cargo doc --all-features
 
       - name: Clippy
-        run: cargo clippy --verbose --all-features -- -D warnings
+        run: cargo clippy --all-features -- -D warnings
