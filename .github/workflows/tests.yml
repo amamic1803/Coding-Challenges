@@ -39,6 +39,28 @@ jobs:
       - name: Clippy
         run: cargo clippy --all-features -- -D warnings
 
+  c-primer-plus:
+    name: C Primer Plus
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
+        working-directory: "C Primer Plus (3rd edition)"
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Compile
+        run: |
+          export CC=gcc
+          export CXX=g++
+          cmake -S . -B build
+          cmake -DCMAKE_BUILD_TYPE=Release --build build
+
   project-euler:
     name: Project Euler
     strategy:
