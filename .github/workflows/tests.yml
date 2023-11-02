@@ -56,10 +56,8 @@ jobs:
 
       - name: Compile
         run: |
-          export CC=gcc
-          export CXX=g++
-          cmake -S . -B build
-          cmake -DCMAKE_BUILD_TYPE=Release --build build
+          cmake -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release -S . -B build
+          cmake --build build
 
   project-euler:
     name: Project Euler
