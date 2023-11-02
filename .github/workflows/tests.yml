@@ -54,6 +54,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Install Ninja
+        run: apt-get install ninja-build 
+
       - name: Compile
         run: |
           cmake -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release -G "Ninja" -S . -B build --debug-output
