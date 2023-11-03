@@ -57,7 +57,7 @@ jobs:
       - name: Compile
         run: |
           gcc --version
-          cmake -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release -G -S . -B build --debug-output
+          cmake -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release -S . -B build --debug-output
           cmake --build build
 
   project-euler:
