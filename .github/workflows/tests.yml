@@ -9,6 +9,9 @@ env:
   CARGO_TERM_COLOR: always
 
 jobs:
+
+
+
   advent-of-code:
     name: Advent of Code
     strategy:
@@ -39,6 +42,8 @@ jobs:
       - name: Clippy
         run: cargo clippy --all-features -- -D warnings
 
+
+
   c-primer-plus:
     name: C Primer Plus
     strategy:
@@ -54,11 +59,26 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Compile
+      - name: Install Ninja
         run: |
-          gcc --version
-          cmake -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release -S . -B build --debug-output
+          case ${{ matrix.os }} in 
+              ubuntu-latest)
+              sudo apt-get install -y ninja-build
+              ;;
+              macos-latest)
+              brew install ninja
+              ;;
+              windows-latest)
+              choco install ninja
+              ;;
+          esac
+
+      - name: Compile
+        run: |          
+          cmake -DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release -G Ninja -S . -B build
           cmake --build build
+  
+  
 
   project-euler:
     name: Project Euler
