@@ -1,16 +1,17 @@
 name: Test and Lint
 
+
 on:
   push:
   pull_request:
   workflow_dispatch:
 
+
 env:
   CARGO_TERM_COLOR: always
 
+
 jobs:
-
-
 
   advent-of-code:
     name: Advent of Code
@@ -41,8 +42,6 @@ jobs:
 
       - name: Clippy
         run: cargo clippy --all-features -- -D warnings
-
-
 
   c-primer-plus:
     name: C Primer Plus
@@ -85,8 +84,6 @@ jobs:
             -S . -B build
           cmake --build build
   
-  
-
   project-euler:
     name: Project Euler
     strategy:
