@@ -1,5 +1,0 @@
-4
-/core.dat 100
-/tmp.dat 150
-/install.zip 300
-/tmp/install.zip 400
