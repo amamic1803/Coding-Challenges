@@ -1,0 +1,11 @@
+5 5
+aa
+bb
+ca
+db
+eb
+ab
+ba
+cb
+da
+ea

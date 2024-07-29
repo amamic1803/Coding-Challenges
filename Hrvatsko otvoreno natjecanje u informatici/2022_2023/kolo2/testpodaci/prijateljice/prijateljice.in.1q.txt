@@ -1,0 +1,8 @@
+2 5
+ab
+db
+aa
+ba
+ca
+da
+ea
