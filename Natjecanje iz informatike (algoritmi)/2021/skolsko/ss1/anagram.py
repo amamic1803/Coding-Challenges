@@ -1,55 +1,34 @@
-#!/usr/bin/python3
+def main():
+    rijec = [x for x in input()]
 
-import sys
+    for x in rijec:
+        count = rijec.count(x)
+        if count - (len(rijec) - count) > 1:
+            print(-1)
+            return
+
+    rijec.sort()
+    izlaz_str = "-"
+
+    while len(rijec) != 0:
+        izlaz_str += rijec.pop(rijec.index(poc_abc(rijec, izlaz_str)))
+
+    print(izlaz_str[1:])
 
 
 def poc_abc(lista_1, ext):
-    zad_slovo = ext[-1]
+    zadnje_slovo = ext[-1]
 
-    temp_lista = []
-    for y in lista_1:
-        if y == zad_slovo:
-            pass
-        else:
-            temp_lista.append(y)
+    temp_lista = [y for y in lista_1 if y != zadnje_slovo]
     temp_lista.sort()
 
-    for a in range(len(temp_lista)):
-        if lista_1.count(temp_lista[a]) - (len(lista_1) - lista_1.count(temp_lista[a])) >= 1:
-            return temp_lista[a]
+    for c in temp_lista:
+        count = lista_1.count(c)
+        if count - (len(lista_1) - count) >= 1:
+            return c
 
     return temp_lista[0]
 
 
-rijec = input()
-rijec_lista = []
-
-for x in range(len(rijec)):
-    rijec_lista.append(rijec[x])
-
-izlaz = False
-
-for x in rijec:
-    if rijec.count(x) - (len(rijec) - rijec.count(x)) > 1:
-        izlaz = True
-
-if izlaz:
-    print(-1)
-    sys.exit()
-
-rijec_lista_abc = rijec_lista.copy()
-rijec_lista_abc.sort()
-
-izlaz_str = "-"
-
-obrisano = 0
-
-while len(rijec_lista_abc) != 0:
-    rijec_lista_abc.sort()
-
-    ind = rijec_lista_abc.index(poc_abc(rijec_lista_abc, izlaz_str))
-    izlaz_str += rijec_lista_abc[ind]
-    del rijec_lista_abc[ind]
-
-print(izlaz_str[1:])
-# program može biti prespor za veće primjere (ovisno o brzini procesora)
+if __name__ == '__main__':
+    main()

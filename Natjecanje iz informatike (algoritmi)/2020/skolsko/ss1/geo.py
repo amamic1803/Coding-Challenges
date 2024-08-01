@@ -1,38 +1,46 @@
-n = int(input())
-geohash = int(input())
+def main():
+	n = int(input())
+	geohash = int(input())
+	x, y = anti_geohash(n, geohash)
+	print(f"{x} {y}")
 
-bin_hash = f"{geohash:b}".zfill(2 * n)
+def anti_geohash(grid_size: int, geohash: int) -> (int, int):
+	# treba razdvojiti bitove geohasha na x i y
+	# svaki drugi bit je x (počevši od najznačajnijeg), svaki drugi je y (počevši od drugog najznačajnijeg)
 
-x_celija = [x for x in range(1, pow(2, n) + 1)]
-y_celija = x_celija.copy()
+	rev_x, rev_y = 0, 0
 
-x_pass = 0
-y_pass = 1
-while len(x_celija) > 1:
-	zbroj = 0
-	for i in range(len(x_celija)):
-		zbroj += x_celija[i]
-	arith = zbroj / len(x_celija)
+	temp_hash = geohash
+	for _ in range(grid_size):
+		rev_y <<= 1
+		rev_y |= temp_hash & 1
+		temp_hash >>= 2
 
-	if int(bin_hash[x_pass]) == 0:
-		x_celija = [x for x in x_celija if x < arith]
-	else:
-		x_celija = [x for x in x_celija if x > arith]
+	temp_hash = geohash >> 1
+	for _ in range(grid_size):
+		rev_x <<= 1
+		rev_x |= temp_hash & 1
+		temp_hash >>= 2
 
-	x_pass += 2
+	x, y = 0, 0
+	for _ in range(grid_size):
+		x <<= 1
+		x |= rev_x & 1
+		rev_x >>= 1
+		y <<= 1
+		y |= rev_y & 1
+		rev_y >>= 1
 
-while len(y_celija) > 1:
-	zbroj = 0
-	for i in range(len(y_celija)):
-		zbroj += y_celija[i]
-	arith = zbroj / len(y_celija)
+	return x, y
 
-	if int(bin_hash[y_pass]) == 0:
-		y_celija = [x for x in y_celija if x < arith]
-	else:
-		y_celija = [x for x in y_celija if x > arith]
+def reverse_binary(n: int) -> int:
+	new_n = 0
+	while n != 0:
+		new_n <<= 1
+		new_n |= n & 1
+		n >>= 1
+	return new_n
 
-	y_pass += 2
 
-print(f"{x_celija[0] - 1} {y_celija[0] - 1}")
-# presporo za veće brojeve (primjeri 9 i 10)
+if __name__ == '__main__':
+	main()

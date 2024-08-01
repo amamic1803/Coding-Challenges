@@ -6,32 +6,25 @@ import unittest
 
 class Test2023Skolsko(unittest.TestCase):
     def test_radnici(self):
-        test_task("radnici", 2)
+        test_task(2, "radnici")
 
     def test_euro(self):
-        test_task("euro", 2)
+        test_task(2, "euro")
 
     def test_putovanje(self):
-        test_task("putovanje", 2)
+        test_task(2, "putovanje")
 
 
-def test_task(task: str, kategorija: int):
-    match kategorija:
-        case 1:
-            kategorija = "ss1"
-        case 2:
-            kategorija = "ss2"
-        case _:
-            raise ValueError("Invalid category!")
-
+def test_task(podskupina: int, task: str):
+    assert podskupina in [1, 2]
     for input_file in os.listdir(task):
-        if "in" in input_file:
+        if ".in." in input_file:
             with open(f"{task}/{input_file}", encoding="UTF-8") as file:
                 input_text = file.read()
-            with open(f"{task}/{input_file.replace('in', 'out')}", encoding="UTF-8") as file:
+            with open(f"{task}/{input_file.replace('.in.', '.out.')}", encoding="UTF-8") as file:
                 output_text = file.read()
             proc = subprocess.run(
-                ["python", f"../{kategorija}/{task}.py"],
+                ["python", f"../ss{podskupina}/{task}.py"],
                 input=input_text,
                 text=True,
                 encoding="UTF-8",

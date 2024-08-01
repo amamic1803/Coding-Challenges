@@ -1,24 +1,49 @@
-r1, s1 = map(int, input().split())
-r2, s2 = map(int, input().split())
+def main():
+	r1, s1 = map(int, input().split())
+	r2, s2 = map(int, input().split())
 
-jedinice_u_polju = (r2 - r1 + 1) * (s2 - s1 + 1)
-vodoravno_zbrojeno = (r2 - r1 + 1) * (s2 * (s2 - 1) - (s1 - 1) * (s1 - 2))
-vertikalno_zbrojeno = 0
+	zbroj = 0
 
-trenutni_broj = (r1 * r1 - (r1 % 2)) // 2 - r1 + 1
-vertikalno_zbrojeno += trenutni_broj
-pomak = [r1 if r1 % 2 == 1 else r1 - 1, False if r1 % 2 == 0 else True]
-for i in range(r1 + 1, r2 + 1):
-	if pomak[1]:
-		pomak[0] += 2
-		vertikalno_zbrojeno += trenutni_broj + pomak[0]
-		pomak[1] = False
-	else:
-		vertikalno_zbrojeno += trenutni_broj + pomak[0]
-		pomak[1] = True
-	trenutni_broj += pomak[0]
+	# iz svakog retka izlučiti prvi član
+	# tada redovi postanu 0 2 4 6 ...
+	# takvih redova ima r2 - r1 + 1
+	# a zbroj onih članova reda koji su u polju je s2 * (s2 - 1) - (s1 - 1) * (s1 - 2)
 
-vertikalno_zbrojeno *= (s2 - s1 + 1)
+	zbroj += (r2 - r1 + 1) * (s2 * (s2 - 1) - (s1 - 1) * (s1 - 2))
 
-print(jedinice_u_polju + vodoravno_zbrojeno + vertikalno_zbrojeno)
-# ovaj način može biti sporiji od 1 sekunde (ovisno o brzini procesora), isto rješenje u Rustu daje željenu brzinu (pogledajte folder Rust)
+	# treba pronaći 1. član svakog retka i dodati ga n puta za svaki red
+	# gdje je n broj koliko je članova reda u polju (jer je iz njih izlučen 1. član)
+	# n = s2 - s1 + 1
+
+	n = s2 - s1 + 1
+
+	# prvi član reda r1
+	prvi_clan = (r1 * r1) // 2 - r1 + 2
+
+	# razlika između prvog člana retka r1 i sljedećeg retka
+	pomak = r1 if r1 % 2 == 1 else r1 - 1
+
+	# zastavica koja označava paran ili neparan red
+	zastavica = r1 % 2 == 0
+
+	# za svaki red između r1 i r2
+	for _ in range(r2 - r1 + 1):
+		# dodati prvi član reda n puta
+		zbroj += prvi_clan * n
+
+		# izračunati prvi član sljedećeg retka
+		prvi_clan += pomak
+
+		# ako je red paran povećati pomak za 2
+		if zastavica:
+			pomak += 2
+
+		# promijeniti zastavicu
+		zastavica = not zastavica
+
+	# ispisati zbroj
+	print(zbroj)
+
+
+if __name__ == "__main__":
+	main()

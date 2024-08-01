@@ -64,7 +64,7 @@ def main():
 
             for pr in oni_s_najmanjom_cijenom:
                 # ispis (output)
-                print(f"{pr}-{drzava}-{f'{round(najmanja_cijena, 2): .2f}'.replace('.', ',')}")
+                print(f"{pr}-{drzava}-{f'{round(najmanja_cijena, 2):.2f}'.replace('.', ',')}")
 
 
 if __name__ == "__main__":

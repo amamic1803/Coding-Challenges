@@ -1,7 +1,4 @@
-ulaz = input()
-izlaz = ""
-
-en_u_hr = {
+EN_TO_HR = {
 	"C": "C",
 	"C#": "C#",
 	"Db": "C#",
@@ -20,7 +17,7 @@ en_u_hr = {
 	"Bb": "A#",
 	"B": "H"
 }
-hr_u_en = {
+HR_TO_EN = {
 	"C": "C",
 	"C#": "C#",
 	"Db": "C#",
@@ -40,17 +37,25 @@ hr_u_en = {
 	"H": "B"
 }
 
-if "Bb" in ulaz:
-	radni_dict = en_u_hr
-else:
-	radni_dict = hr_u_en
 
-while len(ulaz) > 0:
-	try:
-		izlaz += radni_dict[ulaz[0] + ulaz[1]]
-		ulaz = ulaz[2:]
-	except (IndexError, KeyError):
-		izlaz += radni_dict[ulaz[0]]
-		ulaz = ulaz[1:]
+def main():
+	ulaz = input()
 
-print(izlaz)
+	if "Bb" in ulaz:
+		radni_dict = EN_TO_HR
+	else:
+		radni_dict = HR_TO_EN
+
+	while len(ulaz) > 0:
+		try:
+			print(radni_dict[ulaz[0] + ulaz[1]], end="")
+			ulaz = ulaz[2:]
+		except (IndexError, KeyError):
+			print(radni_dict[ulaz[0]], end="")
+			ulaz = ulaz[1:]
+
+	print()
+
+
+if __name__ == "__main__":
+	main()

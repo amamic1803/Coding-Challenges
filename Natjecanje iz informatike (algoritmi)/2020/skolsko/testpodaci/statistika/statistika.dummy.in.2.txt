@@ -1,0 +1,9 @@
+8
+/test/in.x 100
+/test/in.b 30
+/test/out.x 100
+/test/out.b 30
+/test/pic/in.svg 10
+/test/pic/out.svg 10
+/x/test/in.x 20
+/x/test/in.b 20

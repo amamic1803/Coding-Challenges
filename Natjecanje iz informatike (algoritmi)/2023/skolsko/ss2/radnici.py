@@ -35,7 +35,7 @@ def main():
         if moguca_radna_vremena_trajanje[i] == najkrace:
             preostala_moguca_vremena.append(list(map(int, moguca_radna_vremena[i].split("-"))))
 
-    if len(preostala_moguca_vremena) > 1: # ako jos uvijek ima vise mogucnosti (vrijeme je imalo isti broj zelja, i isto trajanje), nadi ono koje pocinje ranije
+    if len(preostala_moguca_vremena) > 1:  # ako jos uvijek ima vise mogucnosti (vrijeme je imalo isti broj zelja, i isto trajanje), nadi ono koje pocinje ranije
         indeks = 0
         najranije = preostala_moguca_vremena[0][0]
         for i in range(1, len(preostala_moguca_vremena)):
