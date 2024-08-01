@@ -17,10 +17,10 @@ class TestKolo3(unittest.TestCase):
 
 def test_task(task: str):
     for input_file in os.listdir(task):
-        if "in" in input_file:
+        if ".in." in input_file:
             with open(f"{task}/{input_file}", encoding="UTF-8") as file:
                 input_text = file.read()
-            with open(f"{task}/{input_file.replace('in', 'out')}", encoding="UTF-8") as file:
+            with open(f"{task}/{input_file.replace('.in.', '.out.')}", encoding="UTF-8") as file:
                 output_text = file.read()
             proc = subprocess.run(
                 ["python", f"../{task}.py"],
