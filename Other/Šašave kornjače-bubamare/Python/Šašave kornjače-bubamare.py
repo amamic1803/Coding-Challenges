@@ -58,7 +58,7 @@ def find_sols(polje, vrste, rezultati):
 
 def solve_turtles(vrste):
 	dobro = True
-	if type(vrste) is not dict:
+	if isinstance(vrste, dict):
 		dobro = False
 	else:
 		prihvatljive_znam = [i for i in range(1, 10)]

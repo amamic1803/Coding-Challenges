@@ -78,7 +78,55 @@ jobs:
             -G Ninja \
             -S . -B build
           cmake --build build
-  
+
+  honi:
+    name: Hrvatsko otvoreno natjecanje u informatici
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
+        working-directory: "Hrvatsko otvoreno natjecanje u informatici"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Setup Ruff
+        run: pip install ruff
+      - name: Test
+        run: python test.py
+      - name: Lint
+        run: ruff check .
+
+  natjecanje-iz-informatike:
+    name: Natjecanje iz informatike
+    strategy:
+      matrix:
+        os: [ ubuntu-latest, macos-latest, windows-latest ]
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
+        working-directory: "Natjecanje iz informatike"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Setup Ruff
+        run: pip install ruff
+      - name: Test
+        run: python test.py
+      - name: Lint
+        run: ruff check .
+
   project-euler:
     name: Project Euler
     strategy:
