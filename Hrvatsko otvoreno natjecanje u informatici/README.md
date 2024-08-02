@@ -1,8 +1,6 @@
-# HONI
+# HRVATSKO OTVORENO NATJECANJE U INFORMATICI
 
-_**HRVATSKO OTVORENO NATJECANJE U INFORMATICI**_
-
-_Hrvatsko otvoreno natjecanje u informatici_ odnosno _Croatian Open Competition in Informatics_
+_Hrvatsko otvoreno natjecanje u informatici_ (HONI) odnosno _Croatian Open Competition in Informatics_
 natjecanje je u programiranju putem Interneta na koje se mogu prijaviti svi zainteresirani
 učenici iz Hrvatske i cijelog svijeta. Ovaj je program _Hrvatski savez informatičara_ pokrenuo 2006.
 godine s ciljem priprema nadarenih učenika informatičara osnovnih i srednjih škola Hrvatske
