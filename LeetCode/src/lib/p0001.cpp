@@ -9,7 +9,7 @@ std::vector<int> leetcode::Solution0001::twoSum(std::vector<int> &nums, int targ
         int complement = target - nums[i];
 
         if (nums_set.find(complement) != nums_set.end()) {
-            for (int j = 0; j < nums.size(); j++) {
+            for (int j = 0; j < static_cast<int>(nums.size()); j++) {
                 if (nums[j] == complement && i != j) {
                     return std::vector<int>{i, j};
                 }
