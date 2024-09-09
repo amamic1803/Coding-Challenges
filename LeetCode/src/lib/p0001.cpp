@@ -5,7 +5,7 @@
 std::vector<int> leetcode::Solution0001::twoSum(std::vector<int> &nums, int target) {
     std::unordered_set<int> nums_set = std::unordered_set<int>(nums.begin(), nums.end());
 
-    for (int i = 0; i < nums.size(); i++) {
+    for (int i = 0; i < static_cast<int>(nums.size()); i++) {
         int complement = target - nums[i];
 
         if (nums_set.find(complement) != nums_set.end()) {
