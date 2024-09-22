@@ -66,6 +66,11 @@ namespace leetcode {
     public:
         static int search(std::vector<int>& nums, int target);
     };
+
+    class Solution0069 {
+    public:
+        static int mySqrt(int x);
+    };
 }
 
 #endif // LEETCODE_LIB_HPP

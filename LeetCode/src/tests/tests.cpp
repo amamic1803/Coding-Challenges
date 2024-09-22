@@ -47,6 +47,9 @@ int main(int argc, char *argv[]) {
         case 33:
             test_result = test_p0033();
             break;
+        case 69:
+            test_result = test_p0069();
+            break;
         default:
             return -5;
     }
@@ -438,6 +441,34 @@ bool test_p0033() {
     int target3 = 0;
     int expected3 = -1;
     int result3 = leetcode::Solution0033::search(nums3, target3);
+    if (expected3 != result3) {
+        return false;
+    }
+
+    return true;
+}
+
+bool test_p0069() {
+    // Test case 1
+    int x1 = 4;
+    int expected1 = 2;
+    int result1 = leetcode::Solution0069::mySqrt(x1);
+    if (expected1 != result1) {
+        return false;
+    }
+
+    // Test case 2
+    int x2 = 8;
+    int expected2 = 2;
+    int result2 = leetcode::Solution0069::mySqrt(x2);
+    if (expected2 != result2) {
+        return false;
+    }
+
+    // Test case 3
+    int x3 = 1;
+    int expected3 = 1;
+    int result3 = leetcode::Solution0069::mySqrt(x3);
     if (expected3 != result3) {
         return false;
     }

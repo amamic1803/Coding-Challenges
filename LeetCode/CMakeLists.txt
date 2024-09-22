@@ -20,6 +20,7 @@ add_library(leetcode_lib STATIC
         src/lib/p0020.cpp
         src/lib/p0021.cpp
         src/lib/p0033.cpp
+        src/lib/p0069.cpp
 )
 target_include_directories(leetcode_lib PRIVATE src/lib/include)
 set_target_properties(leetcode_lib PROPERTIES
@@ -44,3 +45,4 @@ add_test(NAME test_p0009 COMMAND leetcode_tests 9)
 add_test(NAME test_p0020 COMMAND leetcode_tests 20)
 add_test(NAME test_p0021 COMMAND leetcode_tests 21)
 add_test(NAME test_p0033 COMMAND leetcode_tests 33)
+add_test(NAME test_p0069 COMMAND leetcode_tests 69)
