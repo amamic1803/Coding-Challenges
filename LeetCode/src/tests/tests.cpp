@@ -50,6 +50,9 @@ int main(int argc, char *argv[]) {
         case 69:
             test_result = test_p0069();
             break;
+        case 83:
+            test_result = test_p0083();
+            break;
         default:
             return -5;
     }
@@ -470,6 +473,74 @@ bool test_p0069() {
     int expected3 = 1;
     int result3 = leetcode::Solution0069::mySqrt(x3);
     if (expected3 != result3) {
+        return false;
+    }
+
+    return true;
+}
+
+bool test_p0083() {
+    using ListNode = leetcode::Solution0083::ListNode;
+
+    // Test case 1
+    auto *head1 = new ListNode(1);
+    head1->next = new ListNode(1);
+    head1->next->next = new ListNode(2);
+
+    auto *expected1 = new ListNode(1);
+    expected1->next = new ListNode(2);
+    auto *result1 = leetcode::Solution0083::deleteDuplicates(head1);
+
+    while (expected1 != nullptr && result1 != nullptr) {
+        if (expected1->val != result1->val) {
+            return false;
+        }
+        expected1 = expected1->next;
+        result1 = result1->next;
+    }
+    if (expected1 != nullptr || result1 != nullptr) {
+        return false;
+    }
+
+    // Test case 2
+    auto *head2 = new ListNode(1);
+    head2->next = new ListNode(1);
+    head2->next->next = new ListNode(2);
+    head2->next->next->next = new ListNode(3);
+    head2->next->next->next->next = new ListNode(3);
+
+    auto *expected2 = new ListNode(1);
+    expected2->next = new ListNode(2);
+    expected2->next->next = new ListNode(3);
+    auto *result2 = leetcode::Solution0083::deleteDuplicates(head2);
+
+    while (expected2 != nullptr && result2 != nullptr) {
+        if (expected2->val != result2->val) {
+            return false;
+        }
+        expected2 = expected2->next;
+        result2 = result2->next;
+    }
+    if (expected2 != nullptr || result2 != nullptr) {
+        return false;
+    }
+
+    // Test case 3
+    auto *head3 = new ListNode(1);
+    head3->next = new ListNode(1);
+    head3->next->next = new ListNode(1);
+
+    auto *expected3 = new ListNode(1);
+    auto *result3 = leetcode::Solution0083::deleteDuplicates(head3);
+
+    while (expected3 != nullptr && result3 != nullptr) {
+        if (expected3->val != result3->val) {
+            return false;
+        }
+        expected3 = expected3->next;
+        result3 = result3->next;
+    }
+    if (expected3 != nullptr || result3 != nullptr) {
         return false;
     }
 

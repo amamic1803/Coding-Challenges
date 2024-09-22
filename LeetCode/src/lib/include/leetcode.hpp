@@ -71,6 +71,19 @@ namespace leetcode {
     public:
         static int mySqrt(int x);
     };
+
+    class Solution0083 {
+    public:
+        // Definition for singly-linked list.
+        struct ListNode {
+            int val;
+            ListNode *next;
+            ListNode() : val(0), next(nullptr) {}
+            explicit ListNode(int x) : val(x), next(nullptr) {}
+            ListNode(int x, ListNode *next) : val(x), next(next) {}
+        };
+        static ListNode* deleteDuplicates(ListNode* head);
+    };
 }
 
 #endif // LEETCODE_LIB_HPP
