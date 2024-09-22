@@ -44,15 +44,14 @@ int main(int argc, char *argv[]) {
         case 21:
             test_result = test_p0021();
             break;
+        case 33:
+            test_result = test_p0033();
+            break;
         default:
             return -5;
     }
 
-    if (test_result) {
-        return 0;
-    } else {
-        return -1;
-    }
+    return test_result ? 0 : -1;
 }
 
 bool test_p0001() {
@@ -409,6 +408,37 @@ bool test_p0021() {
         result3 = result3->next;
     }
     if (expected3 != nullptr || result3 != nullptr) {
+        return false;
+    }
+
+    return true;
+}
+
+bool test_p0033() {
+    // Test case 1
+    std::vector<int> nums1 = {4, 5, 6, 7, 0, 1, 2};
+    int target1 = 0;
+    int expected1 = 4;
+    int result1 = leetcode::Solution0033::search(nums1, target1);
+    if (expected1 != result1) {
+        return false;
+    }
+
+    // Test case 2
+    std::vector<int> nums2 = {4, 5, 6, 7, 0, 1, 2};
+    int target2 = 3;
+    int expected2 = -1;
+    int result2 = leetcode::Solution0033::search(nums2, target2);
+    if (expected2 != result2) {
+        return false;
+    }
+
+    // Test case 3
+    std::vector<int> nums3 = {1};
+    int target3 = 0;
+    int expected3 = -1;
+    int result3 = leetcode::Solution0033::search(nums3, target3);
+    if (expected3 != result3) {
         return false;
     }
 

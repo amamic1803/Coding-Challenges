@@ -61,6 +61,11 @@ namespace leetcode {
 
         static ListNode* mergeTwoLists(ListNode* list1, ListNode* list2);
     };
+
+    class Solution0033 {
+    public:
+        static int search(std::vector<int>& nums, int target);
+    };
 }
 
 #endif // LEETCODE_LIB_HPP
