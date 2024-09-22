@@ -67,6 +67,11 @@ namespace leetcode {
         static int removeDuplicates(std::vector<int>& nums);
     };
 
+    class Solution0027 {
+    public:
+        static int removeElement(std::vector<int>& nums, int val);
+    };
+
     class Solution0033 {
     public:
         static int search(std::vector<int>& nums, int target);

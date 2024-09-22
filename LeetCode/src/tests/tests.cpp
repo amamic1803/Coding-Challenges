@@ -47,6 +47,9 @@ int main(int argc, char *argv[]) {
         case 26:
             test_result = test_p0026();
             break;
+        case 27:
+            test_result = test_p0027();
+            break;
         case 33:
             test_result = test_p0033();
             break;
@@ -444,6 +447,37 @@ bool test_p0026() {
     std::vector<int> nums2 = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
     std::vector<int> expectedNums2 = {0, 1, 2, 3, 4};
     if (!test_func(nums2, expectedNums2))
+        return false;
+
+    return true;
+}
+
+bool test_p0027() {
+    auto test_func = [](std::vector<int>& nums, int val, std::vector<int>& expectedNums){
+        int k = leetcode::Solution0027::removeElement(nums, val);
+        if (k != expectedNums.size())
+            return false;
+        std::sort(nums.begin(), nums.begin() + k); // Sort the first k elements of nums
+        std::sort(expectedNums.begin(), expectedNums.end());
+        for (int i = 0; i < expectedNums.size(); i++) {
+            if (nums[i] != expectedNums[i])
+                return false;
+        }
+        return true;
+    };
+
+    // Test case 1
+    std::vector<int> nums1 = {3, 2, 2, 3};
+    int val1 = 3;
+    std::vector<int> expectedNums1 = {2, 2};
+    if (!test_func(nums1, val1, expectedNums1))
+        return false;
+
+    // Test case 2
+    std::vector<int> nums2 = {0, 1, 2, 2, 3, 0, 4, 2};
+    int val2 = 2;
+    std::vector<int> expectedNums2 = {0, 1, 3, 0, 4};
+    if (!test_func(nums2, val2, expectedNums2))
         return false;
 
     return true;
