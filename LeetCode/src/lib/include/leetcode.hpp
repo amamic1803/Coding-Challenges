@@ -62,6 +62,11 @@ namespace leetcode {
         static ListNode* mergeTwoLists(ListNode* list1, ListNode* list2);
     };
 
+    class Solution0026 {
+    public:
+        static int removeDuplicates(std::vector<int>& nums);
+    };
+
     class Solution0033 {
     public:
         static int search(std::vector<int>& nums, int target);

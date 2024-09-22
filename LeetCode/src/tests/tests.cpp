@@ -44,6 +44,9 @@ int main(int argc, char *argv[]) {
         case 21:
             test_result = test_p0021();
             break;
+        case 26:
+            test_result = test_p0026();
+            break;
         case 33:
             test_result = test_p0033();
             break;
@@ -416,6 +419,32 @@ bool test_p0021() {
     if (expected3 != nullptr || result3 != nullptr) {
         return false;
     }
+
+    return true;
+}
+
+bool test_p0026() {
+    auto test_func = [](std::vector<int>& nums, const std::vector<int>& expectedNums){
+        int k = leetcode::Solution0026::removeDuplicates(nums);
+        if (k != expectedNums.size())
+            return false;
+        for (int i = 0; i < k; i++)
+            if (nums[i] != expectedNums[i])
+                return false;
+        return true;
+    };
+
+    // Test case 1
+    std::vector<int> nums1 = {1, 1, 2};
+    std::vector<int> expectedNums1 = {1, 2};
+    if (!test_func(nums1, expectedNums1))
+        return false;
+
+    // Test case 2
+    std::vector<int> nums2 = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
+    std::vector<int> expectedNums2 = {0, 1, 2, 3, 4};
+    if (!test_func(nums2, expectedNums2))
+        return false;
 
     return true;
 }

@@ -9,6 +9,7 @@ bool test_p0008();
 bool test_p0009();
 bool test_p0020();
 bool test_p0021();
+bool test_p0026();
 bool test_p0033();
 bool test_p0069();
 bool test_p0083();
