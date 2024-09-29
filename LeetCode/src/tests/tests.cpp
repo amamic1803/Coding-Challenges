@@ -4,7 +4,7 @@
 #include "leetcode.hpp"
 #include "tests.hpp"
 
-int main(int argc, char *argv[]) {
+int main(const int argc, char *argv[]) {
     if (argc != 2) {
         return -2;
     }
@@ -38,6 +38,9 @@ int main(int argc, char *argv[]) {
         case 9:
             test_result = test_p0009();
             break;
+        case 13:
+            test_result = test_p0013();
+            break;
         case 20:
             test_result = test_p0020();
             break;
@@ -69,9 +72,9 @@ int main(int argc, char *argv[]) {
 bool test_p0001() {
     // Test case 1
     std::vector<int> nums1 = {2, 7, 11, 15};
-    int target1 = 9;
+    constexpr int target1 = 9;
 
-    std::vector<int> expected1 = {0, 1};
+    const std::vector expected1 = {0, 1};
     std::vector<int> result1 = leetcode::Solution0001::twoSum(nums1, target1);
     std::sort(result1.begin(), result1.end());
 
@@ -81,7 +84,7 @@ bool test_p0001() {
 
     // Test case 2
     std::vector<int> nums2 = {3, 2, 4};
-    int target2 = 6;
+    constexpr int target2 = 6;
 
     std::vector<int> expected2 = {1, 2};
     std::vector<int> result2 = leetcode::Solution0001::twoSum(nums2, target2);
@@ -93,7 +96,7 @@ bool test_p0001() {
 
     // Test case 3
     std::vector<int> nums3 = {3, 3};
-    int target3 = 6;
+    constexpr int target3 = 6;
 
     std::vector<int> expected3 = {0, 1};
     std::vector<int> result3 = leetcode::Solution0001::twoSum(nums3, target3);
@@ -323,6 +326,28 @@ bool test_p0009() {
     if (expected3 != result3) {
         return false;
     }
+
+    return true;
+}
+
+bool test_p0013() {
+    // Test case 1
+    const std::string s1 = "III";
+    const int result1 = leetcode::Solution0013::romanToInt(s1);
+    if (constexpr int expected1 = 3; result1 != expected1)
+        return false;
+
+    // Test case 2
+    const std::string s2 = "LVIII";
+    const int result2 = leetcode::Solution0013::romanToInt(s2);
+    if (constexpr int expected2 = 58; result2 != expected2)
+        return false;
+
+    // Test case 3
+    const std::string s3 = "MCMXCIV";
+    const int result3 = leetcode::Solution0013::romanToInt(s3);
+    if (constexpr int expected3 = 1994; result3 != expected3)
+        return false;
 
     return true;
 }

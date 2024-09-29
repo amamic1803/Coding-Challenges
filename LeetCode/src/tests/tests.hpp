@@ -7,6 +7,7 @@ bool test_p0006();
 bool test_p0007();
 bool test_p0008();
 bool test_p0009();
+bool test_p0013();
 bool test_p0020();
 bool test_p0021();
 bool test_p0026();

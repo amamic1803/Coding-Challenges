@@ -43,6 +43,11 @@ namespace leetcode {
         static bool isPalindrome(int x);
     };
 
+    class Solution0013 {
+    public:
+        static int romanToInt(const std::string& s);
+    };
+
     class Solution0020 {
     public:
         static bool isValid(const std::string& s);
