@@ -48,6 +48,11 @@ namespace leetcode {
         static int romanToInt(const std::string& s);
     };
 
+    class Solution0014 {
+    public:
+        static std::string longestCommonPrefix(const std::vector<std::string>& strs);
+    };
+
     class Solution0019 {
     public:
         // Definition for singly-linked list.

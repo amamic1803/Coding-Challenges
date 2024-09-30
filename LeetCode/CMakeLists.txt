@@ -18,6 +18,7 @@ add_library(leetcode_lib STATIC
         src/lib/p0008.cpp
         src/lib/p0009.cpp
         src/lib/p0013.cpp
+        src/lib/p0014.cpp
         src/lib/p0019.cpp
         src/lib/p0020.cpp
         src/lib/p0021.cpp
@@ -48,6 +49,7 @@ add_test(NAME test_p0007 COMMAND leetcode_tests 7)
 add_test(NAME test_p0008 COMMAND leetcode_tests 8)
 add_test(NAME test_p0009 COMMAND leetcode_tests 9)
 add_test(NAME test_p0013 COMMAND leetcode_tests 13)
+add_test(NAME test_p0014 COMMAND leetcode_tests 14)
 add_test(NAME test_p0019 COMMAND leetcode_tests 19)
 add_test(NAME test_p0020 COMMAND leetcode_tests 20)
 add_test(NAME test_p0021 COMMAND leetcode_tests 21)

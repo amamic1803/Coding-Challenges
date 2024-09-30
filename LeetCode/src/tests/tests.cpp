@@ -41,6 +41,9 @@ int main(const int argc, char *argv[]) {
         case 13:
             test_result = test_p0013();
             break;
+        case 14:
+            test_result = test_p0014();
+            break;
         case 19:
             test_result = test_p0019();
             break;
@@ -351,6 +354,24 @@ bool test_p0013() {
     const int result3 = leetcode::Solution0013::romanToInt(s3);
     if (constexpr int expected3 = 1994; result3 != expected3)
         return false;
+
+    return true;
+}
+
+bool test_p0014() {
+    // Test case 1
+    const std::vector<std::string> strs1 = {"flower", "flow", "flight"};
+    const std::string result1 = leetcode::Solution0014::longestCommonPrefix(strs1);
+    if (const std::string expected1 = "fl"; expected1 != result1) {
+        return false;
+    }
+
+    // Test case 2
+    const std::vector<std::string> strs2 = {"dog", "racecar", "car"};
+    const std::string result2 = leetcode::Solution0014::longestCommonPrefix(strs2);
+    if (const std::string expected2; expected2 != result2) {
+        return false;
+    }
 
     return true;
 }
