@@ -48,6 +48,19 @@ namespace leetcode {
         static int romanToInt(const std::string& s);
     };
 
+    class Solution0019 {
+    public:
+        // Definition for singly-linked list.
+        struct ListNode {
+            int val;
+            ListNode *next;
+            ListNode() : val(0), next(nullptr) {}
+            explicit ListNode(const int x) : val(x), next(nullptr) {}
+            ListNode(const int x, ListNode *next) : val(x), next(next) {}
+        };
+        static ListNode* removeNthFromEnd(ListNode* head, int n);
+    };
+
     class Solution0020 {
     public:
         static bool isValid(const std::string& s);

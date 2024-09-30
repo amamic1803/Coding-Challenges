@@ -41,6 +41,9 @@ int main(const int argc, char *argv[]) {
         case 13:
             test_result = test_p0013();
             break;
+        case 19:
+            test_result = test_p0019();
+            break;
         case 20:
             test_result = test_p0020();
             break;
@@ -348,6 +351,65 @@ bool test_p0013() {
     const int result3 = leetcode::Solution0013::romanToInt(s3);
     if (constexpr int expected3 = 1994; result3 != expected3)
         return false;
+
+    return true;
+}
+
+bool test_p0019() {
+    using ListNode = leetcode::Solution0019::ListNode;
+
+    // Test case 1
+    auto *head1 = new ListNode(1);
+    head1->next = new ListNode(2);
+    head1->next->next = new ListNode(3);
+    head1->next->next->next = new ListNode(4);
+    head1->next->next->next->next = new ListNode(5);
+
+    auto *expected1 = new ListNode(1);
+    expected1->next = new ListNode(2);
+    expected1->next->next = new ListNode(3);
+    expected1->next->next->next = new ListNode(5);
+
+    head1 = leetcode::Solution0019::removeNthFromEnd(head1, 2);
+
+    while (head1 != nullptr && expected1 != nullptr) {
+        if (head1->val != expected1->val) {
+            return false;
+        }
+        head1 = head1->next;
+        expected1 = expected1->next;
+    }
+    if (head1 != nullptr || expected1 != nullptr) {
+        return false;
+    }
+
+    // Test case 2
+    auto *head2 = new ListNode(1);
+
+    head2 = leetcode::Solution0019::removeNthFromEnd(head2, 1);
+
+    if (const constexpr ListNode* expected2 = nullptr; head2 != expected2) {
+        return false;
+    }
+
+    // Test case 3
+    auto *head3 = new ListNode(1);
+    head3->next = new ListNode(2);
+
+    const auto *expected3 = new ListNode(1);
+
+    head3 = leetcode::Solution0019::removeNthFromEnd(head3, 1);
+
+    while (head3 != nullptr && expected3 != nullptr) {
+        if (head3->val != expected3->val) {
+            return false;
+        }
+        head3 = head3->next;
+        expected3 = expected3->next;
+    }
+    if (head3 != nullptr || expected3 != nullptr) {
+        return false;
+    }
 
     return true;
 }
