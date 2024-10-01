@@ -44,6 +44,9 @@ int main(const int argc, char *argv[]) {
         case 14:
             test_result = test_p0014();
             break;
+        case 17:
+            test_result = test_p0017();
+            break;
         case 19:
             test_result = test_p0019();
             break;
@@ -372,6 +375,35 @@ bool test_p0014() {
     if (const std::string expected2; expected2 != result2) {
         return false;
     }
+
+    return true;
+}
+
+bool test_p0017() {
+    // Test case 1
+    const std::string digits1 = "23";
+    std::vector<std::string> expected1 = {"ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"};
+    std::vector<std::string> result1 = leetcode::Solution0017::letterCombinations(digits1);
+    std::sort(expected1.begin(), expected1.end());
+    std::sort(result1.begin(), result1.end());
+    if (expected1 != result1)
+        return false;
+
+    // Test case 2
+    const std::string digits2;
+    std::vector<std::string> expected2;
+    std::vector<std::string> result2 = leetcode::Solution0017::letterCombinations(digits2);
+    if (expected2 != result2)
+        return false;
+
+    // Test case 3
+    const std::string digits3 = "2";
+    std::vector<std::string> expected3 = {"a", "b", "c"};
+    std::vector<std::string> result3 = leetcode::Solution0017::letterCombinations(digits3);
+    std::sort(expected3.begin(), expected3.end());
+    std::sort(result3.begin(), result3.end());
+    if (expected3 != result3)
+        return false;
 
     return true;
 }

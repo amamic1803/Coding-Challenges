@@ -2,6 +2,7 @@
 #define LEETCODE_LIB_HPP
 
 #include <string>
+#include <unordered_map>
 #include <vector>
 
 namespace leetcode {
@@ -51,6 +52,19 @@ namespace leetcode {
     class Solution0014 {
     public:
         static std::string longestCommonPrefix(const std::vector<std::string>& strs);
+    };
+
+    class Solution0017 {
+    public:
+        static std::vector<std::string> letterCombinations(const std::string &digits);
+    private:
+        static void generateCombinations(
+            const std::string& digits,
+            int index,
+            std::string &working_string,
+            std::vector<std::string> &combinations,
+            std::unordered_map<char, std::string> &digit_2_characters
+        );
     };
 
     class Solution0019 {
