@@ -42,8 +42,8 @@ std::string leetcode::Solution0012::intToRoman(int num) {
                 roman.push_back('L');
                 tens -= 5;
             }
-        for (int i = 0; i < tens; i++)
-            roman.push_back('X');
+            for (int i = 0; i < tens; i++)
+                roman.push_back('X');
     }
 
     switch (num) {
@@ -58,8 +58,8 @@ std::string leetcode::Solution0012::intToRoman(int num) {
                 roman.push_back('V');
                 num -= 5;
             }
-        for (int i = 0; i < num; i++)
-            roman.push_back('I');
+            for (int i = 0; i < num; i++)
+                roman.push_back('I');
     }
 
     return roman;
