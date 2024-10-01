@@ -44,6 +44,11 @@ namespace leetcode {
         static bool isPalindrome(int x);
     };
 
+    class Solution0012 {
+    public:
+        static std::string intToRoman(int num);
+    };
+
     class Solution0013 {
     public:
         static int romanToInt(const std::string& s);

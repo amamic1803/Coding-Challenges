@@ -38,6 +38,9 @@ int main(const int argc, char *argv[]) {
         case 9:
             test_result = test_p0009();
             break;
+        case 12:
+            test_result = test_p0012();
+            break;
         case 13:
             test_result = test_p0013();
             break;
@@ -335,6 +338,28 @@ bool test_p0009() {
     if (expected3 != result3) {
         return false;
     }
+
+    return true;
+}
+
+bool test_p0012() {
+    // Test case 1
+    constexpr int num1 = 3749;
+    const std::string result1 = leetcode::Solution0012::intToRoman(num1);
+    if (const std::string expected1 = "MMMDCCXLIX"; expected1 != result1)
+        return false;
+
+    // Test case 2
+    constexpr int num2 = 58;
+    const std::string result2 = leetcode::Solution0012::intToRoman(num2);
+    if (const std::string expected2 = "LVIII"; expected2 != result2)
+        return false;
+
+    // Test case 3
+    constexpr int num3 = 1994;
+    const std::string result3 = leetcode::Solution0012::intToRoman(num3);
+    if (const std::string expected3 = "MCMXCIV"; expected3 != result3)
+        return false;
 
     return true;
 }
