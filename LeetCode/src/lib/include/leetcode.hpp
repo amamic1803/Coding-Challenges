@@ -119,6 +119,11 @@ namespace leetcode {
         static int search(std::vector<int>& nums, int target);
     };
 
+    class Solution0035 {
+    public:
+        static int searchInsert(const std::vector<int>& nums, int target);
+    };
+
     class Solution0069 {
     public:
         static int mySqrt(int x);

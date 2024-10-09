@@ -68,6 +68,9 @@ int main(const int argc, char *argv[]) {
         case 33:
             test_result = test_p0033();
             break;
+        case 35:
+            test_result = test_p0035();
+            break;
         case 69:
             test_result = test_p0069();
             break;
@@ -673,6 +676,34 @@ bool test_p0033() {
     int expected3 = -1;
     int result3 = leetcode::Solution0033::search(nums3, target3);
     if (expected3 != result3) {
+        return false;
+    }
+
+    return true;
+}
+
+bool test_p0035() {
+    // Test case 1
+    const std::vector nums1{1, 3, 5, 6};
+    constexpr int target1 = 5;
+    const int result1 = leetcode::Solution0035::searchInsert(nums1, target1);
+    if (constexpr int expected1 = 2; expected1 != result1) {
+        return false;
+    }
+
+    // Test case 2
+    const std::vector nums2{1, 3, 5, 6};
+    constexpr int target2 = 2;
+    const int result2 = leetcode::Solution0035::searchInsert(nums2, target2);
+    if (constexpr int expected2 = 1; expected2 != result2) {
+        return false;
+    }
+
+    // Test case 3
+    const std::vector nums3{1, 3, 5, 6};
+    constexpr int target3 = 7;
+    const int result3 = leetcode::Solution0035::searchInsert(nums3, target3);
+    if (constexpr int expected3 = 4; expected3 != result3) {
         return false;
     }
 
