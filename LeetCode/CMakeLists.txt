@@ -34,7 +34,7 @@ add_library(leetcode_lib STATIC
 target_include_directories(leetcode_lib PRIVATE src/lib/include)
 set_target_properties(leetcode_lib PROPERTIES
         OUTPUT_NAME leetcode
-        PUBLIC_HEADER src/lib/leetcode.hpp
+        PUBLIC_HEADER src/lib/include/leetcode.hpp
 )
 
 # Add the tests
