@@ -141,6 +141,11 @@ namespace leetcode {
         };
         static ListNode* deleteDuplicates(ListNode* head);
     };
+
+    class Solution0125 {
+    public:
+        static bool isPalindrome(std::string s);
+    };
 }
 
 #endif // LEETCODE_LIB_HPP

@@ -77,6 +77,9 @@ int main(const int argc, char *argv[]) {
         case 83:
             test_result = test_p0083();
             break;
+        case 125:
+            test_result = test_p0125();
+            break;
         default:
             return -5;
     }
@@ -802,6 +805,25 @@ bool test_p0083() {
     if (expected3 != nullptr || result3 != nullptr) {
         return false;
     }
+
+    return true;
+}
+
+bool test_p0125() {
+    // Test case 1
+    std::string s1{"A man, a plan, a canal: Panama"};
+    if (bool expected1 = true; expected1 != leetcode::Solution0125::isPalindrome(s1))
+        return false;
+
+    // Test case 2
+    std::string s2{"race a car"};
+    if (bool expected2 = false; expected2 != leetcode::Solution0125::isPalindrome(s2))
+        return false;
+
+    // Test case 3
+    std::string s3{" "};
+    if (bool expected3 = true; expected3 != leetcode::Solution0125::isPalindrome(s3))
+        return false;
 
     return true;
 }
