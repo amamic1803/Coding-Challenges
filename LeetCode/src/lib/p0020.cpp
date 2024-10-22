@@ -1,10 +1,11 @@
 #include "leetcode.hpp"
 #include <stack>
+#include <string>
 
 bool leetcode::Solution0020::isValid(const std::string& s) {
     auto stack = std::stack<char>();
 
-    for (char c : s) {
+    for (const char c : s) {
         switch (c) {
             case '(':
             case '[':

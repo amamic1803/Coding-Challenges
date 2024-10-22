@@ -1,10 +1,11 @@
 #include "leetcode.hpp"
+#include <string>
 
 int leetcode::Solution0013::romanToInt(const std::string& s) {
     int result = 0;
 
     int i;
-    for (i = 0; i < s.size() - 1; i++) {
+    for (i = 0; i < static_cast<int>(s.size()) - 1; i++) {
         switch (s[i]) {
             case 'I':
                 switch (s[i + 1]) {
@@ -67,7 +68,7 @@ int leetcode::Solution0013::romanToInt(const std::string& s) {
                 break;
         }
     }
-    if (i == s.size() - 1) {
+    if (i == static_cast<int>(s.size()) - 1) {
         switch (s[i]) {
             case 'I':
                 result++;

@@ -1,4 +1,6 @@
 #include "leetcode.hpp"
+#include <string>
+#include <vector>
 
 std::string leetcode::Solution0006::convert(std::string s, int numRows) {
     if (numRows == 1) {
@@ -12,7 +14,7 @@ std::string leetcode::Solution0006::convert(std::string s, int numRows) {
 
     int i = 0;
     int direction = 1;
-    for (char c : s) {
+    for (const char c : s) {
         rows_strings[i] += c;
         i += direction;
         if (i == 0 || i == numRows - 1) {

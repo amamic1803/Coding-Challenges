@@ -1,10 +1,11 @@
 #include "leetcode.hpp"
+#include <cctype>
 #include <string>
 
 bool leetcode::Solution0125::isPalindrome(std::string s) {
     int loc = 0;
-    for (char c : s)
-        if (isalnum(c))
+    for (const char c : s)
+        if (std::isalnum(c))
             s[loc++] = c;
     s.resize(loc);
 
@@ -12,7 +13,7 @@ bool leetcode::Solution0125::isPalindrome(std::string s) {
     int end = static_cast<int>(s.length() - 1);
 
     while (start < end)
-        if (tolower(s[start++]) != tolower(s[end--]))
+        if (std::tolower(s[start++]) != std::tolower(s[end--]))
             return false;
 
     return true;

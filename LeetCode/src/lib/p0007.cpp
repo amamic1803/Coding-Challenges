@@ -1,9 +1,9 @@
+#include "leetcode.hpp"
 #include <cstdint>
 #include <cstdlib>
-#include "leetcode.hpp"
 
 int leetcode::Solution0007::reverse(int x) {
-    bool negative = x < 0;
+    const bool negative = x < 0;
     x = abs(x);
 
     int32_t reversed = 0;

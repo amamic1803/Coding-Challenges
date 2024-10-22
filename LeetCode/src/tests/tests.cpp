@@ -1,8 +1,9 @@
-#include <algorithm>
-#include <stdexcept>
-#include <vector>
 #include "leetcode.hpp"
 #include "tests.hpp"
+#include <algorithm>
+#include <stdexcept>
+#include <string>
+#include <vector>
 
 int main(const int argc, char *argv[]) {
     if (argc != 2) {
@@ -12,10 +13,12 @@ int main(const int argc, char *argv[]) {
     int problem_number;
     try {
         problem_number = std::stoi(argv[1]);
-    } catch (std::invalid_argument &e) {
+    } catch (std::invalid_argument &_) {
         return -3;
-    } catch (std::out_of_range &e) {
+    } catch (std::out_of_range &_) {
         return -4;
+    } catch (...) {
+        return -5;
     }
 
     bool test_result;
@@ -81,7 +84,7 @@ int main(const int argc, char *argv[]) {
             test_result = test_p0125();
             break;
         default:
-            return -5;
+            return -6;
     }
 
     return test_result ? 0 : -1;
@@ -89,7 +92,7 @@ int main(const int argc, char *argv[]) {
 
 bool test_p0001() {
     // Test case 1
-    std::vector<int> nums1 = {2, 7, 11, 15};
+    std::vector nums1{2, 7, 11, 15};
     constexpr int target1 = 9;
 
     const std::vector expected1 = {0, 1};
@@ -104,7 +107,7 @@ bool test_p0001() {
     std::vector<int> nums2 = {3, 2, 4};
     constexpr int target2 = 6;
 
-    std::vector<int> expected2 = {1, 2};
+    const std::vector expected2{1, 2};
     std::vector<int> result2 = leetcode::Solution0001::twoSum(nums2, target2);
     std::sort(result2.begin(), result2.end());
 
@@ -113,18 +116,14 @@ bool test_p0001() {
     }
 
     // Test case 3
-    std::vector<int> nums3 = {3, 3};
+    std::vector nums3{3, 3};
     constexpr int target3 = 6;
 
-    std::vector<int> expected3 = {0, 1};
+    const std::vector expected3{0, 1};
     std::vector<int> result3 = leetcode::Solution0001::twoSum(nums3, target3);
     std::sort(result3.begin(), result3.end());
 
-    if (expected3 != result3) {
-        return false;
-    }
-
-    return true;
+    return expected3 == result3;
 }
 
 bool test_p0002() {
@@ -207,145 +206,130 @@ bool test_p0002() {
         expected3 = expected3->next;
         result3 = result3->next;
     }
-    if (expected3 != nullptr || result3 != nullptr) {
-        return false;
-    }
 
-    return true;
+    return expected3 == nullptr && result3 == nullptr;
 }
 
 bool test_p0006() {
     // Test case 1
-    std::string s1 = "PAYPALISHIRING";
-    int numRows1 = 3;
-    std::string expected1 = "PAHNAPLSIIGYIR";
+    const std::string s1 = "PAYPALISHIRING";
+    const int numRows1 = 3;
+    const std::string expected1 = "PAHNAPLSIIGYIR";
 
-    std::string result1 = leetcode::Solution0006::convert(s1, numRows1);
+    const std::string result1 = leetcode::Solution0006::convert(s1, numRows1);
     if (expected1 != result1) {
         return false;
     }
 
     // Test case 2
-    std::string s2 = "PAYPALISHIRING";
-    int numRows2 = 4;
-    std::string expected2 = "PINALSIGYAHRPI";
+    const std::string s2 = "PAYPALISHIRING";
+    const int numRows2 = 4;
+    const std::string expected2 = "PINALSIGYAHRPI";
 
-    std::string result2 = leetcode::Solution0006::convert(s2, numRows2);
+    const std::string result2 = leetcode::Solution0006::convert(s2, numRows2);
     if (expected2 != result2) {
         return false;
     }
 
     // Test case 3
-    std::string s3 = "A";
-    int numRows3 = 1;
-    std::string expected3 = "A";
+    const std::string s3 = "A";
+    const int numRows3 = 1;
+    const std::string expected3 = "A";
 
-    std::string result3 = leetcode::Solution0006::convert(s3, numRows3);
-    if (expected3 != result3) {
-        return false;
-    }
+    const std::string result3 = leetcode::Solution0006::convert(s3, numRows3);
 
-    return true;
+    return expected3 == result3;
 }
 
 bool test_p0007() {
     // Test case 1
-    int x1 = 123;
-    int expected1 = 321;
-    int result1 = leetcode::Solution0007::reverse(x1);
+    const int x1 = 123;
+    const int expected1 = 321;
+    const int result1 = leetcode::Solution0007::reverse(x1);
     if (expected1 != result1) {
         return false;
     }
 
     // Test case 2
-    int x2 = -123;
-    int expected2 = -321;
-    int result2 = leetcode::Solution0007::reverse(x2);
+    const int x2 = -123;
+    const int expected2 = -321;
+    const int result2 = leetcode::Solution0007::reverse(x2);
     if (expected2 != result2) {
         return false;
     }
 
     // Test case 3
-    int x3 = 120;
-    int expected3 = 21;
-    int result3 = leetcode::Solution0007::reverse(x3);
-    if (expected3 != result3) {
-        return false;
-    }
+    const int x3 = 120;
+    const int expected3 = 21;
+    const int result3 = leetcode::Solution0007::reverse(x3);
 
-    return true;
+    return expected3 == result3;
 }
 
 bool test_p0008() {
     // Test case 1
-    std::string s1 = "42";
-    int expected1 = 42;
-    int result1 = leetcode::Solution0008::myAtoi(s1);
+    const std::string s1 = "42";
+    const int expected1 = 42;
+    const int result1 = leetcode::Solution0008::myAtoi(s1);
     if (expected1 != result1) {
         return false;
     }
 
     // Test case 2
-    std::string s2 = "   -042";
-    int expected2 = -42;
-    int result2 = leetcode::Solution0008::myAtoi(s2);
+    const std::string s2 = "   -042";
+    const int expected2 = -42;
+    const int result2 = leetcode::Solution0008::myAtoi(s2);
     if (expected2 != result2) {
         return false;
     }
 
     // Test case 3
-    std::string s3 = "1337c0d3";
-    int expected3 = 1337;
-    int result3 = leetcode::Solution0008::myAtoi(s3);
+    const std::string s3 = "1337c0d3";
+    const int expected3 = 1337;
+    const int result3 = leetcode::Solution0008::myAtoi(s3);
     if (expected3 != result3) {
         return false;
     }
 
     // Test case 4
-    std::string s4 = "0-1";
-    int expected4 = 0;
-    int result4 = leetcode::Solution0008::myAtoi(s4);
+    const std::string s4 = "0-1";
+    const int expected4 = 0;
+    const int result4 = leetcode::Solution0008::myAtoi(s4);
     if (expected4 != result4) {
         return false;
     }
 
     // Test case 5
-    std::string s5 = "words and 987";
-    int expected5 = 0;
-    int result5 = leetcode::Solution0008::myAtoi(s5);
-    if (expected5 != result5) {
-        return false;
-    }
+    const std::string s5 = "words and 987";
+    const int expected5 = 0;
+    const int result5 = leetcode::Solution0008::myAtoi(s5);
 
-    return true;
+    return expected5 == result5;
 }
 
 bool test_p0009() {
     // Test case 1
-    int x1 = 121;
-    bool expected1 = true;
-    bool result1 = leetcode::Solution0009::isPalindrome(x1);
+    const int x1 = 121;
+    const bool expected1 = true;
+    const bool result1 = leetcode::Solution0009::isPalindrome(x1);
     if (expected1 != result1) {
         return false;
     }
 
     // Test case 2
-    int x2 = -121;
-    bool expected2 = false;
-    bool result2 = leetcode::Solution0009::isPalindrome(x2);
+    const int x2 = -121;
+    const bool expected2 = false;
+    const bool result2 = leetcode::Solution0009::isPalindrome(x2);
     if (expected2 != result2) {
         return false;
     }
 
     // Test case 3
-    int x3 = 10;
-    bool expected3 = false;
-    bool result3 = leetcode::Solution0009::isPalindrome(x3);
-    if (expected3 != result3) {
-        return false;
-    }
+    const int x3 = 10;
+    const bool expected3 = false;
+    const bool result3 = leetcode::Solution0009::isPalindrome(x3);
 
-    return true;
+    return expected3 == result3;
 }
 
 bool test_p0012() {
@@ -422,8 +406,8 @@ bool test_p0017() {
 
     // Test case 2
     const std::string digits2;
-    std::vector<std::string> expected2;
-    std::vector<std::string> result2 = leetcode::Solution0017::letterCombinations(digits2);
+    const std::vector<std::string> expected2;
+    const std::vector<std::string> result2 = leetcode::Solution0017::letterCombinations(digits2);
     if (expected2 != result2)
         return false;
 
@@ -433,10 +417,8 @@ bool test_p0017() {
     std::vector<std::string> result3 = leetcode::Solution0017::letterCombinations(digits3);
     std::sort(expected3.begin(), expected3.end());
     std::sort(result3.begin(), result3.end());
-    if (expected3 != result3)
-        return false;
 
-    return true;
+    return expected3 == result3;
 }
 
 bool test_p0019() {
@@ -491,47 +473,41 @@ bool test_p0019() {
         head3 = head3->next;
         expected3 = expected3->next;
     }
-    if (head3 != nullptr || expected3 != nullptr) {
-        return false;
-    }
 
-    return true;
+    return head3 == nullptr && expected3 == nullptr;
 }
 
 bool test_p0020() {
     // Test case 1
-    std::string s1 = "()";
-    bool expected1 = true;
-    bool result1 = leetcode::Solution0020::isValid(s1);
+    const std::string s1 = "()";
+    const bool expected1 = true;
+    const bool result1 = leetcode::Solution0020::isValid(s1);
     if (expected1 != result1) {
         return false;
     }
 
     // Test case 2
-    std::string s2 = "()[]{}";
-    bool expected2 = true;
-    bool result2 = leetcode::Solution0020::isValid(s2);
+    const std::string s2 = "()[]{}";
+    const bool expected2 = true;
+    const bool result2 = leetcode::Solution0020::isValid(s2);
     if (expected2 != result2) {
         return false;
     }
 
     // Test case 3
-    std::string s3 = "(]";
-    bool expected3 = false;
-    bool result3 = leetcode::Solution0020::isValid(s3);
+    const std::string s3 = "(]";
+    const bool expected3 = false;
+    const bool result3 = leetcode::Solution0020::isValid(s3);
     if (expected3 != result3) {
         return false;
     }
 
     // Test case 4
-    std::string s4 = "([])";
-    bool expected4 = true;
-    bool result4 = leetcode::Solution0020::isValid(s4);
-    if (expected4 != result4) {
-        return false;
-    }
+    const std::string s4 = "([])";
+    const bool expected4 = true;
+    const bool result4 = leetcode::Solution0020::isValid(s4);
 
-    return true;
+    return expected4 == result4;
 }
 
 bool test_p0021() {
@@ -552,7 +528,7 @@ bool test_p0021() {
     expected1->next->next->next = new ListNode(3);
     expected1->next->next->next->next = new ListNode(4);
     expected1->next->next->next->next->next = new ListNode(4);
-    auto result1 = leetcode::Solution0021::mergeTwoLists(l1_1, l2_1);
+    auto *result1 = leetcode::Solution0021::mergeTwoLists(l1_1, l2_1);
 
     while (expected1 != nullptr && result1 != nullptr) {
         if (expected1->val != result1->val) {
@@ -570,7 +546,7 @@ bool test_p0021() {
     ListNode *l2_2 = nullptr;
 
     ListNode *expected2 = nullptr;
-    auto result2 = leetcode::Solution0021::mergeTwoLists(l1_2, l2_2);
+    auto *result2 = leetcode::Solution0021::mergeTwoLists(l1_2, l2_2);
 
     if (expected2 != result2) {
         return false;
@@ -581,7 +557,7 @@ bool test_p0021() {
     auto *l2_3 = new ListNode(0);
 
     auto *expected3 = new ListNode(0);
-    auto result3 = leetcode::Solution0021::mergeTwoLists(l1_3, l2_3);
+    auto *result3 = leetcode::Solution0021::mergeTwoLists(l1_3, l2_3);
 
     while (expected3 != nullptr && result3 != nullptr) {
         if (expected3->val != result3->val) {
@@ -590,17 +566,14 @@ bool test_p0021() {
         expected3 = expected3->next;
         result3 = result3->next;
     }
-    if (expected3 != nullptr || result3 != nullptr) {
-        return false;
-    }
 
-    return true;
+    return expected3 == nullptr && result3 == nullptr;
 }
 
 bool test_p0026() {
     auto test_func = [](std::vector<int>& nums, const std::vector<int>& expectedNums){
-        int k = leetcode::Solution0026::removeDuplicates(nums);
-        if (k != expectedNums.size())
+        const int k = leetcode::Solution0026::removeDuplicates(nums);
+        if (k != static_cast<int>(expectedNums.size()))
             return false;
         for (int i = 0; i < k; i++)
             if (nums[i] != expectedNums[i])
@@ -609,28 +582,26 @@ bool test_p0026() {
     };
 
     // Test case 1
-    std::vector<int> nums1 = {1, 1, 2};
-    std::vector<int> expectedNums1 = {1, 2};
+    std::vector nums1{1, 1, 2};
+    const std::vector expectedNums1{1, 2};
     if (!test_func(nums1, expectedNums1))
         return false;
 
     // Test case 2
-    std::vector<int> nums2 = {0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
-    std::vector<int> expectedNums2 = {0, 1, 2, 3, 4};
-    if (!test_func(nums2, expectedNums2))
-        return false;
+    std::vector nums2{0, 0, 1, 1, 1, 2, 2, 3, 3, 4};
+    const std::vector expectedNums2{0, 1, 2, 3, 4};
 
-    return true;
+    return test_func(nums2, expectedNums2);
 }
 
 bool test_p0027() {
     auto test_func = [](std::vector<int>& nums, int val, std::vector<int>& expectedNums){
-        int k = leetcode::Solution0027::removeElement(nums, val);
-        if (k != expectedNums.size())
+        const int k = leetcode::Solution0027::removeElement(nums, val);
+        if (k != static_cast<int>(expectedNums.size()))
             return false;
         std::sort(nums.begin(), nums.begin() + k); // Sort the first k elements of nums
         std::sort(expectedNums.begin(), expectedNums.end());
-        for (int i = 0; i < expectedNums.size(); i++) {
+        for (int i = 0; i < static_cast<int>(expectedNums.size()); i++) {
             if (nums[i] != expectedNums[i])
                 return false;
         }
@@ -638,51 +609,46 @@ bool test_p0027() {
     };
 
     // Test case 1
-    std::vector<int> nums1 = {3, 2, 2, 3};
-    int val1 = 3;
-    std::vector<int> expectedNums1 = {2, 2};
+    std::vector nums1{3, 2, 2, 3};
+    const int val1 = 3;
+    std::vector expectedNums1{2, 2};
     if (!test_func(nums1, val1, expectedNums1))
         return false;
 
     // Test case 2
-    std::vector<int> nums2 = {0, 1, 2, 2, 3, 0, 4, 2};
-    int val2 = 2;
-    std::vector<int> expectedNums2 = {0, 1, 3, 0, 4};
-    if (!test_func(nums2, val2, expectedNums2))
-        return false;
+    std::vector nums2{0, 1, 2, 2, 3, 0, 4, 2};
+    const int val2 = 2;
+    std::vector expectedNums2{0, 1, 3, 0, 4};
 
-    return true;
+    return test_func(nums2, val2, expectedNums2);
 }
 
 bool test_p0033() {
     // Test case 1
-    std::vector<int> nums1 = {4, 5, 6, 7, 0, 1, 2};
-    int target1 = 0;
-    int expected1 = 4;
-    int result1 = leetcode::Solution0033::search(nums1, target1);
+    std::vector nums1{4, 5, 6, 7, 0, 1, 2};
+    const int target1 = 0;
+    const int expected1 = 4;
+    const int result1 = leetcode::Solution0033::search(nums1, target1);
     if (expected1 != result1) {
         return false;
     }
 
     // Test case 2
-    std::vector<int> nums2 = {4, 5, 6, 7, 0, 1, 2};
-    int target2 = 3;
-    int expected2 = -1;
-    int result2 = leetcode::Solution0033::search(nums2, target2);
+    std::vector nums2{4, 5, 6, 7, 0, 1, 2};
+    const int target2 = 3;
+    const int expected2 = -1;
+    const int result2 = leetcode::Solution0033::search(nums2, target2);
     if (expected2 != result2) {
         return false;
     }
 
     // Test case 3
-    std::vector<int> nums3 = {1};
-    int target3 = 0;
-    int expected3 = -1;
-    int result3 = leetcode::Solution0033::search(nums3, target3);
-    if (expected3 != result3) {
-        return false;
-    }
+    std::vector nums3{1};
+    const int target3 = 0;
+    const int expected3 = -1;
+    const int result3 = leetcode::Solution0033::search(nums3, target3);
 
-    return true;
+    return expected3 == result3;
 }
 
 bool test_p0035() {
@@ -715,30 +681,27 @@ bool test_p0035() {
 
 bool test_p0069() {
     // Test case 1
-    int x1 = 4;
-    int expected1 = 2;
-    int result1 = leetcode::Solution0069::mySqrt(x1);
+    const int x1 = 4;
+    const int expected1 = 2;
+    const int result1 = leetcode::Solution0069::mySqrt(x1);
     if (expected1 != result1) {
         return false;
     }
 
     // Test case 2
-    int x2 = 8;
-    int expected2 = 2;
-    int result2 = leetcode::Solution0069::mySqrt(x2);
+    const int x2 = 8;
+    const int expected2 = 2;
+    const int result2 = leetcode::Solution0069::mySqrt(x2);
     if (expected2 != result2) {
         return false;
     }
 
     // Test case 3
-    int x3 = 1;
-    int expected3 = 1;
-    int result3 = leetcode::Solution0069::mySqrt(x3);
-    if (expected3 != result3) {
-        return false;
-    }
+    const int x3 = 1;
+    const int expected3 = 1;
+    const int result3 = leetcode::Solution0069::mySqrt(x3);
 
-    return true;
+    return expected3 == result3;
 }
 
 bool test_p0083() {
@@ -802,27 +765,24 @@ bool test_p0083() {
         expected3 = expected3->next;
         result3 = result3->next;
     }
-    if (expected3 != nullptr || result3 != nullptr) {
-        return false;
-    }
 
-    return true;
+    return expected3 == nullptr && result3 == nullptr;
 }
 
 bool test_p0125() {
     // Test case 1
-    std::string s1{"A man, a plan, a canal: Panama"};
-    if (bool expected1 = true; expected1 != leetcode::Solution0125::isPalindrome(s1))
+    const std::string s1{"A man, a plan, a canal: Panama"};
+    if (const bool expected1 = true; expected1 != leetcode::Solution0125::isPalindrome(s1))
         return false;
 
     // Test case 2
-    std::string s2{"race a car"};
-    if (bool expected2 = false; expected2 != leetcode::Solution0125::isPalindrome(s2))
+    const std::string s2{"race a car"};
+    if (const bool expected2 = false; expected2 != leetcode::Solution0125::isPalindrome(s2))
         return false;
 
     // Test case 3
-    std::string s3{" "};
-    if (bool expected3 = true; expected3 != leetcode::Solution0125::isPalindrome(s3))
+    const std::string s3{" "};
+    if (const bool expected3 = true; expected3 != leetcode::Solution0125::isPalindrome(s3))
         return false;
 
     return true;

@@ -1,5 +1,6 @@
-#include <cstdint>
 #include "leetcode.hpp"
+#include <cstdint>
+#include <string>
 
 int leetcode::Solution0008::myAtoi(std::string s) {
     bool sign = true;  // true for positive, false for negative
@@ -20,10 +21,10 @@ int leetcode::Solution0008::myAtoi(std::string s) {
     }
 
     for (; string_iter != s.end(); ++string_iter) {
-        char c = *string_iter;
+        const char c = *string_iter;
 
         if (c >= '0' && c <= '9') {
-            int digit = c - '0';
+            const int digit = c - '0';
 
             if (result > INT32_MAX / 10) {
                 return sign ? INT32_MAX : INT32_MIN;

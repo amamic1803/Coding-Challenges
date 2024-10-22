@@ -32,7 +32,7 @@ void leetcode::Solution0017::generateCombinations(
     std::vector<std::string> &combinations,
     std::unordered_map<char, std::string> &digit_2_characters)
 {
-    if (index == digits.size()) {
+    if (index == static_cast<int>(digits.size())) {
         combinations.push_back(working_string);
     } else {
         for (const char c : digit_2_characters[digits[index]]) {

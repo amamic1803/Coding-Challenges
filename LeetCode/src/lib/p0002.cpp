@@ -3,9 +3,9 @@
 using ListNode = leetcode::Solution0002::ListNode;
 
 ListNode* leetcode::Solution0002::addTwoNumbers(ListNode* l1, ListNode* l2) {
-    auto dummy_head = new ListNode();
+    auto *dummy_head = new ListNode();
 
-    auto result = dummy_head;
+    auto *result = dummy_head;
     bool carry = false;
     while (l1 != nullptr || l2 != nullptr) {
         int sum = 0;
@@ -28,7 +28,7 @@ ListNode* leetcode::Solution0002::addTwoNumbers(ListNode* l1, ListNode* l2) {
         result->next = new ListNode(1);
     }
 
-    auto result_head = dummy_head->next;
+    auto *result_head = dummy_head->next;
     delete dummy_head;
 
     return result_head;

@@ -3,8 +3,8 @@
 using ListNode = leetcode::Solution0021::ListNode;
 
 ListNode* leetcode::Solution0021::mergeTwoLists(ListNode* list1, ListNode* list2) {
-    auto dummy_head = new ListNode();
-    auto current_node = dummy_head;
+    auto *dummy_head = new ListNode();
+    auto *current_node = dummy_head;
 
     while (list1 != nullptr && list2 != nullptr) {
         if (list1->val < list2->val) {
@@ -25,7 +25,7 @@ ListNode* leetcode::Solution0021::mergeTwoLists(ListNode* list1, ListNode* list2
         current_node->next = list2;
     }
 
-    auto head = dummy_head->next;
+    auto *head = dummy_head->next;
     delete dummy_head;
 
     return head;
