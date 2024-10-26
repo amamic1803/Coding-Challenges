@@ -37,6 +37,8 @@ add_library(leetcode_lib STATIC
 )
 target_include_directories(leetcode_lib PRIVATE src/lib/include)
 set_target_properties(leetcode_lib PROPERTIES
+        LANGUAGE CXX
+        LINKER_LANGUAGE CXX
         OUTPUT_NAME leetcode
         PUBLIC_HEADER src/lib/include/leetcode.hpp
 )
@@ -46,6 +48,8 @@ add_executable(leetcode_tests src/tests/tests.hpp src/tests/tests.cpp)
 target_include_directories(leetcode_tests PRIVATE src/lib/include)
 target_link_libraries(leetcode_tests leetcode_lib)
 set_target_properties(leetcode_tests PROPERTIES
+        LANGUAGE CXX
+        LINKER_LANGUAGE CXX
         OUTPUT_NAME leetcode_tests
         RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/tests
 )
