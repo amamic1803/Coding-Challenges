@@ -11,6 +11,9 @@ class Test2021Skolsko(unittest.TestCase):
     def test_anagram(self):
         test_task(1, "anagram")
 
+    def test_konj(self):
+        test_task(1, "konj")
+
 
 def test_task(podskupina: int, task: str):
     assert podskupina in [1, 2]
