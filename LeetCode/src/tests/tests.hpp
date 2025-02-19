@@ -24,5 +24,7 @@ bool test_p0083();
 bool test_p0088();
 bool test_p0125();
 bool test_p0190();
+bool test_p0530();
+bool test_p0783();
 
 #endif // LEETCODE_TESTS_HPP

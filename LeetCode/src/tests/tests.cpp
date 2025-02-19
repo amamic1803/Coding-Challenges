@@ -93,6 +93,12 @@ int main(const int argc, char *argv[]) {
         case 190:
             test_result = test_p0190();
             break;
+        case 530:
+            test_result = test_p0530();
+            break;
+        case 783:
+            test_result = test_p0783();
+            break;
         default:
             return -6;
     }
@@ -858,4 +864,50 @@ bool test_p0190() {
     constexpr uint32_t n2 = 0b11111111111111111111111111111101;
     constexpr uint32_t expected2 = 0b10111111111111111111111111111111;
     return expected2 == leetcode::Solution0190::reverseBits(n2);
+}
+
+bool test_p0530() {
+    // test case 1
+    const leetcode::Solution0530::TreeNode *root1 = new leetcode::Solution0530::TreeNode(
+        4,
+        new leetcode::Solution0530::TreeNode(
+            2,
+            new leetcode::Solution0530::TreeNode(1),
+            new leetcode::Solution0530::TreeNode(3)
+        ),
+        new leetcode::Solution0530::TreeNode(6)
+    );
+    if (leetcode::Solution0530::getMinimumDifference(root1) != 1)
+        return false;
+
+    // test case 2
+    const leetcode::Solution0530::TreeNode *root2 = new leetcode::Solution0530::TreeNode(
+        1,
+        new leetcode::Solution0530::TreeNode(0),
+        new leetcode::Solution0530::TreeNode(48, new leetcode::Solution0530::TreeNode(12), new leetcode::Solution0530::TreeNode(49))
+    );
+    return leetcode::Solution0530::getMinimumDifference(root2) == 1;
+}
+
+bool test_p0783() {
+    // test case 1
+    const leetcode::Solution0783::TreeNode *root1 = new leetcode::Solution0783::TreeNode(
+        4,
+        new leetcode::Solution0783::TreeNode(
+            2,
+            new leetcode::Solution0783::TreeNode(1),
+            new leetcode::Solution0783::TreeNode(3)
+        ),
+        new leetcode::Solution0783::TreeNode(6)
+    );
+    if (leetcode::Solution0783::minDiffInBST(root1) != 1)
+        return false;
+
+    // test case 2
+    const leetcode::Solution0783::TreeNode *root2 = new leetcode::Solution0783::TreeNode(
+        1,
+        new leetcode::Solution0783::TreeNode(0),
+        new leetcode::Solution0783::TreeNode(48, new leetcode::Solution0783::TreeNode(12), new leetcode::Solution0783::TreeNode(49))
+    );
+    return leetcode::Solution0783::minDiffInBST(root2) == 1;
 }

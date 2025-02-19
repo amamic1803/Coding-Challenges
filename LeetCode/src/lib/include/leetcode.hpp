@@ -162,6 +162,36 @@ namespace leetcode {
     public:
         static uint32_t reverseBits(uint32_t n);
     };
+
+    class Solution0530 {
+    public:
+        struct TreeNode {
+            int val;
+            TreeNode *left;
+            TreeNode *right;
+            TreeNode() : val(0), left(nullptr), right(nullptr) {}
+            explicit TreeNode(const int x) : val(x), left(nullptr), right(nullptr) {}
+            TreeNode(const int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+        };
+        static int getMinimumDifference(const TreeNode* root);
+    private:
+        static void inOrderTrav(const TreeNode* root, int& prev, int& minDiff);
+    };
+
+    class Solution0783 {
+    public:
+        struct TreeNode {
+            int val;
+            TreeNode *left;
+            TreeNode *right;
+            TreeNode() : val(0), left(nullptr), right(nullptr) {}
+            explicit TreeNode(const int x) : val(x), left(nullptr), right(nullptr) {}
+            TreeNode(const int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+        };
+        static int minDiffInBST(const TreeNode* root);
+    private:
+        static void inOrderTrav(const TreeNode* root, int& prev, int& minDiff);
+    };
 }
 
 #endif // LEETCODE_LIB_HPP

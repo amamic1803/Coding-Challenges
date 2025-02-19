@@ -37,6 +37,8 @@ add_library(leetcode_lib STATIC
         src/lib/p0088.cpp
         src/lib/p0125.cpp
         src/lib/p0190.cpp
+        src/lib/p0530.cpp
+        src/lib/p0783.cpp
 )
 target_include_directories(leetcode_lib PRIVATE src/lib/include)
 set_target_properties(leetcode_lib PROPERTIES
@@ -79,3 +81,5 @@ add_test(NAME test_p0083 COMMAND leetcode_tests 83)
 add_test(NAME test_p0088 COMMAND leetcode_tests 88)
 add_test(NAME test_p0125 COMMAND leetcode_tests 125)
 add_test(NAME test_p0190 COMMAND leetcode_tests 190)
+add_test(NAME test_p0530 COMMAND leetcode_tests 530)
+add_test(NAME test_p0783 COMMAND leetcode_tests 783)
