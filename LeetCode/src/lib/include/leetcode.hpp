@@ -1,6 +1,7 @@
 #ifndef LEETCODE_LIB_HPP
 #define LEETCODE_LIB_HPP
 
+#include <cstdint>
 #include <string>
 #include <unordered_map>
 #include <vector>
@@ -124,6 +125,11 @@ namespace leetcode {
         static int searchInsert(const std::vector<int>& nums, int target);
     };
 
+    class Solution0067 {
+    public:
+        static std::string addBinary(std::string a, std::string b);
+    };
+
     class Solution0069 {
     public:
         static int mySqrt(int x);
@@ -142,9 +148,19 @@ namespace leetcode {
         static ListNode* deleteDuplicates(ListNode* head);
     };
 
+    class Solution0088 {
+    public:
+        static void merge(std::vector<int>& nums1, int m, const std::vector<int>& nums2, int n);
+    };
+
     class Solution0125 {
     public:
         static bool isPalindrome(std::string s);
+    };
+
+    class Solution0190 {
+    public:
+        static uint32_t reverseBits(uint32_t n);
     };
 }
 

@@ -18,8 +18,11 @@ bool test_p0026();
 bool test_p0027();
 bool test_p0033();
 bool test_p0035();
+bool test_p0067();
 bool test_p0069();
 bool test_p0083();
+bool test_p0088();
 bool test_p0125();
+bool test_p0190();
 
 #endif // LEETCODE_TESTS_HPP
