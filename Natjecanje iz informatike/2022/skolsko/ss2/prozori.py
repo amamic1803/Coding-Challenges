@@ -1,21 +1,27 @@
 #!/usr/bin/python3
 
-redaka, prozora_u_redu = map(int, input().split())
 
-vrste_prozora = {"A": ["....", "....", "....", "...."],
-                 "B": ["####", "#..#", "#..#", "####"],
-                 "C": ["....", ".##.", ".##.", "...."],
-                 "D": ["####", "####", "####", "####"]}
+def main():
+    redaka, prozora_u_redu = map(int, input().split())
 
-ispis_list = []
+    vrste_prozora = {"A": ["....", "....", "....", "...."],
+                     "B": ["####", "#..#", "#..#", "####"],
+                     "C": ["....", ".##.", ".##.", "...."],
+                     "D": ["####", "####", "####", "####"]}
 
-for i in range(redaka):
-    podaci_reda = input()
+    ispis_list = []
 
-    for j in range(4):
-        ispis = ""
-        for x in podaci_reda:
-            ispis += vrste_prozora[x][j]
-        ispis_list.append(ispis)
+    for i in range(redaka):
+        podaci_reda = input()
 
-print("\n".join(ispis_list))
+        for j in range(4):
+            ispis = ""
+            for x in podaci_reda:
+                ispis += vrste_prozora[x][j]
+            ispis_list.append(ispis)
+
+    print("\n".join(ispis_list))
+
+
+if __name__ == "__main__":
+    main()
