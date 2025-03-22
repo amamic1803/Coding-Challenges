@@ -6,8 +6,7 @@ target/
 Cargo.lock
 
 # CMake
-cmake-build-debug/
-cmake-build-release/
+cmake-build*/
 
 # IDE
 .idea/
