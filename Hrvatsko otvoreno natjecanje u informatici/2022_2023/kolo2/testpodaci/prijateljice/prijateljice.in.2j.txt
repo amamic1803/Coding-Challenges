@@ -1,8 +1,0 @@
-3 4
-ab
-da
-ea
-aa
-ba
-ca
-eb

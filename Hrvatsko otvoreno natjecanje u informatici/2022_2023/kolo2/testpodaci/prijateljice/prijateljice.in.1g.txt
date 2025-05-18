@@ -1,6 +1,0 @@
-3 2
-ab
-cb
-da
-aa
-ca

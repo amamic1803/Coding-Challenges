@@ -1,5 +1,0 @@
-5
-Patrik 4
-Josip 2 4
-Josip 2 6
-Josip 4 2

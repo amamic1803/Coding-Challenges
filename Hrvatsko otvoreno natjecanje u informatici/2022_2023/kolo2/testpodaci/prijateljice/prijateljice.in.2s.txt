@@ -1,9 +1,0 @@
-5 3
-ab
-bb
-ca
-da
-ea
-aa
-ba
-db
